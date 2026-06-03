@@ -1,21 +1,11 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Cpu, Globe, Layers, Zap, Star, Shield, Sparkles } from 'lucide-react';
 import { Codepen } from '../components/Icons';
 
 export const MarqueeSection: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-  
   // Track scroll inside this container
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -28,17 +18,17 @@ export const MarqueeSection: React.FC = () => {
 
   const row1 = [
     { text: 'Python Expert', icon: Cpu, color: 'text-accent-emerald' },
-    { text: 'Three.js Playgrounds', icon: Codepen, color: 'text-accent-purple' },
-    { text: 'React & TypeScript', icon: Layers, color: 'text-accent-blue' },
-    { text: 'Tailwind CSS Stylist', icon: Globe, color: 'text-accent-orange' },
+    { text: 'Google-ADK dev ', icon: Sparkles, color: 'text-accent-purple' },
+    { text: 'Android Devloper', icon: Globe, color: 'text-accent-orange' },
+    { text: 'Front-End Dev', icon: Codepen, color: 'text-accent-purple' },
+    { text: 'Tailwind CSS Stylist', icon: Layers, color: 'text-accent-blue' },
     { text: 'High-Performance Web', icon: Zap, color: 'text-white' },
-    { text: 'Creative Engineering', icon: Sparkles, color: 'text-accent-purple' },
   ];
 
   const row2 = [
-    { text: 'Java Engineering', icon: Shield, color: 'text-accent-orange' },
-    { text: 'Framer Motion Physics', icon: Star, color: 'text-accent-purple' },
+    { text: 'Agentic Ai deployement', icon: Star, color: 'text-accent-purple' },
     { text: 'Responsive Interfaces', icon: Layers, color: 'text-accent-blue' },
+    { text: 'Android Apps', icon: Shield, color: 'text-accent-orange' },
     { text: 'Data Structures & Logic', icon: Cpu, color: 'text-accent-emerald' },
     { text: 'Next-Gen Portfolios', icon: Sparkles, color: 'text-white' },
     { text: 'Micro-animations', icon: Zap, color: 'text-accent-blue' },
@@ -60,16 +50,12 @@ export const MarqueeSection: React.FC = () => {
   return (
     <section
       ref={containerRef}
-      className="relative py-16 bg-[#090909] border-y border-white/[0.03] overflow-hidden flex flex-col gap-6"
+      className="py-16 bg-[#090909] border-y border-white/[0.03] overflow-hidden flex flex-col gap-6"
     >
-      {/* Left and Right Fade Gradients */}
-      <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-[#090909] to-transparent z-10 pointer-events-none" />
-      <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-[#090909] to-transparent z-10 pointer-events-none" />
-
       {/* Row 1: Scrolling Left -> Right */}
-      <div className="flex w-full overflow-x-auto md:overflow-hidden select-none pointer-events-auto md:pointer-events-none scrollbar-none">
+      <div className="flex w-full overflow-hidden select-none pointer-events-none">
         <motion.div
-          style={isMobile ? undefined : { x: xLeft }}
+          style={{ x: xLeft }}
           className="flex whitespace-nowrap"
         >
           {renderRowItems(row1)}
@@ -77,9 +63,9 @@ export const MarqueeSection: React.FC = () => {
       </div>
 
       {/* Row 2: Scrolling Right -> Left */}
-      <div className="flex w-full overflow-x-auto md:overflow-hidden select-none pointer-events-auto md:pointer-events-none scrollbar-none">
+      <div className="flex w-full overflow-hidden select-none pointer-events-none">
         <motion.div
-          style={isMobile ? undefined : { x: xRight }}
+          style={{ x: xRight }}
           className="flex whitespace-nowrap"
         >
           {renderRowItems(row2)}
