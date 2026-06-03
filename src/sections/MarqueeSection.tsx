@@ -1,10 +1,20 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Cpu, Globe, Layers, Zap, Star, Shield, Sparkles } from 'lucide-react';
 import { Codepen } from '../components/Icons';
 
 export const MarqueeSection: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   
   // Track scroll inside this container
   const { scrollYProgress } = useScroll({
@@ -50,12 +60,16 @@ export const MarqueeSection: React.FC = () => {
   return (
     <section
       ref={containerRef}
-      className="py-16 bg-[#090909] border-y border-white/[0.03] overflow-hidden flex flex-col gap-6"
+      className="relative py-16 bg-[#090909] border-y border-white/[0.03] overflow-hidden flex flex-col gap-6"
     >
+      {/* Left and Right Fade Gradients */}
+      <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-[#090909] to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-[#090909] to-transparent z-10 pointer-events-none" />
+
       {/* Row 1: Scrolling Left -> Right */}
-      <div className="flex w-full overflow-hidden select-none pointer-events-none">
+      <div className="flex w-full overflow-x-auto md:overflow-hidden select-none pointer-events-auto md:pointer-events-none scrollbar-none">
         <motion.div
-          style={{ x: xLeft }}
+          style={isMobile ? undefined : { x: xLeft }}
           className="flex whitespace-nowrap"
         >
           {renderRowItems(row1)}
@@ -63,9 +77,9 @@ export const MarqueeSection: React.FC = () => {
       </div>
 
       {/* Row 2: Scrolling Right -> Left */}
-      <div className="flex w-full overflow-hidden select-none pointer-events-none">
+      <div className="flex w-full overflow-x-auto md:overflow-hidden select-none pointer-events-auto md:pointer-events-none scrollbar-none">
         <motion.div
-          style={{ x: xRight }}
+          style={isMobile ? undefined : { x: xRight }}
           className="flex whitespace-nowrap"
         >
           {renderRowItems(row2)}
