@@ -1,7 +1,6 @@
 import React from 'react';
 import { Award, ExternalLink, Calendar, GraduationCap, Star } from 'lucide-react';
 import Magnet from '../components/Magnet';
-import DotField from '../components/DotField';
 
 export const MilestonesSection: React.FC = () => {
   const milestones = [
@@ -56,21 +55,6 @@ export const MilestonesSection: React.FC = () => {
       id="milestones"
       className="py-24 md:py-36 px-6 relative w-full bg-[#090909] overflow-hidden"
     >
-      {/* Interactive DotField background overlay */}
-      <div className="absolute inset-0 pointer-events-none opacity-40 z-0">
-        <DotField
-          dotRadius={3}
-          dotSpacing={27}
-          bulgeStrength={22}
-          glowRadius={90}
-          sparkle
-          waveAmplitude={2}
-          cursorForce={0.89}
-          gradientFrom="#240344"
-          gradientTo="#8b74a0"
-          glowColor="#000000"
-        />
-      </div>
       {/* Visual background lights */}
       <div className="absolute top-10 right-10 w-96 h-96 rounded-full bg-accent-blue/[0.02] blur-[150px] pointer-events-none" />
       <div className="absolute bottom-10 left-10 w-96 h-96 rounded-full bg-accent-purple/[0.02] blur-[150px] pointer-events-none" />
