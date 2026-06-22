@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Send, Mail, MapPin, Calendar, Sparkles } from 'lucide-react';
 import { Github, Linkedin } from '../components/Icons';
 import Magnet from '../components/Magnet';
+import DotField from '../components/DotField';
 
 export const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -33,6 +34,21 @@ export const ContactSection: React.FC = () => {
       id="contact"
       className="py-24 md:py-36 px-6 relative w-full bg-background overflow-hidden border-t border-white/[0.04]"
     >
+      {/* Interactive DotField background overlay */}
+      <div className="absolute inset-0 pointer-events-none opacity-40 z-0">
+        <DotField
+          dotRadius={3}
+          dotSpacing={27}
+          bulgeStrength={22}
+          glowRadius={90}
+          sparkle
+          waveAmplitude={2}
+          cursorForce={0.89}
+          gradientFrom="#240344"
+          gradientTo="#8b74a0"
+          glowColor="#000000"
+        />
+      </div>
       {/* Decorative glows */}
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-accent-purple/[0.02] blur-[150px] pointer-events-none" />
       <div className="absolute top-1/2 left-0 w-[400px] h-[400px] rounded-full bg-accent-blue/[0.015] blur-[150px] pointer-events-none" />
@@ -47,8 +63,8 @@ export const ContactSection: React.FC = () => {
               Let's Connect
             </div>
 
-            <h2 className="text-4xl md:text-5xl font-extrabold font-kanit uppercase italic text-white mb-6 leading-tight">
-              Start a <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-accent-purple">Project</span>
+            <h2 className="text-4xl md:text-5xl font-extrabold font-kanit uppercase italic text-white mb-6 leading-tight pr-4">
+              Start a <span className="inline-block pr-4 pb-1 text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-accent-purple">Project</span>
             </h2>
 
             <p className="text-primary-light/60 text-sm md:text-base max-w-md mb-10 leading-relaxed font-outfit">

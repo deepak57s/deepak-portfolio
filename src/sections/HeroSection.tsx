@@ -32,7 +32,7 @@ export const HeroSection: React.FC = () => {
             <span className="text-white/60 text-3xl md:text-4xl block font-medium tracking-normal mb-2">
               Hi, i'm deepak
             </span>
-            <span className="hero-heading uppercase font-kanit italic font-black">
+            <span className="hero-heading uppercase font-kanit italic font-black block pr-4 pb-1">
               Srinivas
               <br />
               Deepak

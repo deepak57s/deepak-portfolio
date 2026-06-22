@@ -53,7 +53,7 @@ export const MilestonesSection: React.FC = () => {
   return (
     <section
       id="milestones"
-      className="py-24 md:py-36 px-6 relative w-full bg-[#090909]"
+      className="py-24 md:py-36 px-6 relative w-full bg-[#090909] overflow-hidden"
     >
       {/* Visual background lights */}
       <div className="absolute top-10 right-10 w-96 h-96 rounded-full bg-accent-blue/[0.02] blur-[150px] pointer-events-none" />
@@ -66,8 +66,8 @@ export const MilestonesSection: React.FC = () => {
             <GraduationCap className="w-4 h-4 text-accent-blue" />
             Verified Achievements
           </div>
-          <h2 className="text-3xl md:text-5xl font-extrabold font-kanit uppercase italic text-white mb-6">
-            Milestones & <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-accent-purple">Credentials</span>
+          <h2 className="text-3xl md:text-5xl font-extrabold font-kanit uppercase italic text-white mb-6 pr-4">
+            Milestones & <span className="inline-block pr-4 pb-1 text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-accent-purple">Credentials</span>
           </h2>
           <p className="text-primary-light/60 text-sm md:text-base max-w-xl leading-relaxed">
             Professional academic records, certificates, and technological accomplishments representing verified skills in programming, structure, and system logic.

@@ -2,6 +2,7 @@ import React from 'react';
 import AnimatedText from '../components/AnimatedText';
 import Magnet from '../components/Magnet';
 import { User, Shield, Zap } from 'lucide-react';
+import DotField from '../components/DotField';
 
 export const AboutSection: React.FC = () => {
   const stats = [
@@ -15,6 +16,22 @@ export const AboutSection: React.FC = () => {
       id="about"
       className="py-24 md:py-36 px-6 relative w-full bg-background overflow-hidden"
     >
+      {/* Interactive DotField background overlay */}
+      <div className="absolute inset-0 pointer-events-none opacity-40 z-0">
+        <DotField
+          dotRadius={3}
+          dotSpacing={27}
+          bulgeStrength={22}
+          glowRadius={90}
+          sparkle
+          waveAmplitude={2}
+          cursorForce={0.89}
+          gradientFrom="#240344"
+          gradientTo="#8b74a0"
+          glowColor="#000000"
+        />
+      </div>
+
       {/* Decorative background grid overlay */}
       <div className="absolute inset-0 grid-overlay opacity-30 pointer-events-none" />
 
@@ -30,10 +47,10 @@ export const AboutSection: React.FC = () => {
             Core Philosophy
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-8 font-kanit uppercase italic text-white leading-tight">
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-8 font-kanit uppercase italic text-white leading-tight pr-4">
             Bridging Art 
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-purple to-accent-blue">
+            <span className="inline-block pr-4 pb-1 text-transparent bg-clip-text bg-gradient-to-r from-accent-purple to-accent-blue">
               & Pure Logic
             </span>
           </h2>

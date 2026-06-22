@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Code2, Compass, Cpu, Smartphone, Plus, Minus, ArrowRight } from 'lucide-react';
 import Magnet from '../components/Magnet';
+import DotField from '../components/DotField';
 
 export const ServicesSection: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
@@ -54,6 +55,21 @@ export const ServicesSection: React.FC = () => {
       id="services"
       className="py-24 md:py-36 px-6 relative w-full bg-background overflow-hidden"
     >
+      {/* Interactive DotField background overlay */}
+      <div className="absolute inset-0 pointer-events-none opacity-40 z-0">
+        <DotField
+          dotRadius={3}
+          dotSpacing={27}
+          bulgeStrength={22}
+          glowRadius={90}
+          sparkle
+          waveAmplitude={2}
+          cursorForce={0.89}
+          gradientFrom="#240344"
+          gradientTo="#8b74a0"
+          glowColor="#000000"
+        />
+      </div>
       <div className="absolute top-1/2 left-10 w-96 h-96 rounded-full bg-accent-blue/[0.015] blur-[150px] pointer-events-none" />
 
       <div className="relative z-10 max-w-5xl mx-auto w-full">
@@ -63,8 +79,8 @@ export const ServicesSection: React.FC = () => {
             <Cpu className="w-4 h-4 text-accent-purple" />
             Capabilities & Disciplines
           </div>
-          <h2 className="text-3xl md:text-5xl font-extrabold font-kanit uppercase italic text-white mb-6">
-            Creative <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-purple to-accent-blue">Expertise</span>
+          <h2 className="text-3xl md:text-5xl font-extrabold font-kanit uppercase italic text-white mb-6 pr-4">
+            Creative <span className="inline-block pr-4 pb-1 text-transparent bg-clip-text bg-gradient-to-r from-accent-purple to-accent-blue">Expertise</span>
           </h2>
           <p className="text-primary-light/60 text-sm md:text-base max-w-xl leading-relaxed">
             Professional skill offerings focusing on modern web frontends, interactive 3D WebGL scenes, and robust backend engineering logic.

@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowUpRight, Code2, Globe } from 'lucide-react';
 import { Github } from '../components/Icons';
 import Magnet from '../components/Magnet';
+import DotField from '../components/DotField';
 import projectPortfolio from '../assets/project_portfolio.png';
 import projectEcommerce from '../assets/project_ecommerce.png';
 import projectAttendance from '../assets/project_attendance.png';
@@ -70,8 +71,23 @@ export const ProjectsSection: React.FC = () => {
   return (
     <section
       id="projects"
-      className="py-24 md:py-36 px-6 relative w-full bg-[#090909]"
+      className="py-24 md:py-36 px-6 relative w-full bg-[#090909] overflow-hidden"
     >
+      {/* Interactive DotField background overlay */}
+      <div className="absolute inset-0 pointer-events-none opacity-40 z-0">
+        <DotField
+          dotRadius={3}
+          dotSpacing={27}
+          bulgeStrength={22}
+          glowRadius={90}
+          sparkle
+          waveAmplitude={2}
+          cursorForce={0.89}
+          gradientFrom="#240344"
+          gradientTo="#8b74a0"
+          glowColor="#000000"
+        />
+      </div>
       {/* Background decoration */}
       <div className="absolute inset-0 grid-overlay opacity-20 pointer-events-none" />
 
@@ -82,8 +98,8 @@ export const ProjectsSection: React.FC = () => {
             <Globe className="w-4 h-4 text-accent-blue" />
             Selected Portfolio
           </div>
-          <h2 className="text-3xl md:text-5xl font-extrabold font-kanit uppercase italic text-white mb-6">
-            Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-accent-purple">Projects</span>
+          <h2 className="text-3xl md:text-5xl font-extrabold font-kanit uppercase italic text-white mb-6 pr-4">
+            Featured <span className="inline-block pr-4 pb-1 text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-accent-purple">Projects</span>
           </h2>
           <p className="text-primary-light/60 text-sm md:text-base max-w-xl leading-relaxed">
             A curated showcase of interactive front-end portfolios, fullstack mobile applications, and machine learning models.
