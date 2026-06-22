@@ -85,8 +85,6 @@ export const TiltCard: React.FC<TiltCardProps> = ({
       video.play().catch(console.error);
     } else if (video.paused) {
       video.play().catch(console.error);
-    } else {
-      video.pause();
     }
   };
 
@@ -144,8 +142,8 @@ export const TiltCard: React.FC<TiltCardProps> = ({
               <img
                 src="/man_placeholder.jpeg"
                 alt={altText}
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 pointer-events-none z-10 ${
-                  isPlaying ? 'opacity-0' : 'opacity-80 group-hover:opacity-100'
+                className={`absolute inset-0 w-full h-full object-cover transition-all duration-300 pointer-events-none ${
+                  isPlaying ? 'opacity-0 z-0' : 'opacity-100 z-10'
                 }`}
               />
               
@@ -153,7 +151,9 @@ export const TiltCard: React.FC<TiltCardProps> = ({
               <video
                 ref={videoRef}
                 src={videoSrc}
-                className="w-full h-full object-cover"
+                className={`absolute inset-0 w-full h-full object-cover transition-all duration-300 ${
+                  isPlaying ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                }`}
                 playsInline
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
