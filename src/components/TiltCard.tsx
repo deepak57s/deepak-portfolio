@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 interface TiltCardProps {
@@ -18,6 +18,7 @@ export const TiltCard: React.FC<TiltCardProps> = ({
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   // Motion values to track normalized mouse coordinates (range: -0.5 to 0.5)
   const x = useMotionValue(0);
@@ -79,7 +80,10 @@ export const TiltCard: React.FC<TiltCardProps> = ({
     // Mark as played once so next time is always click
     localStorage.setItem('video_played_once', 'true');
 
-    if (video.paused) {
+    if (video.ended) {
+      video.currentTime = 0;
+      video.play().catch(console.error);
+    } else if (video.paused) {
       video.play().catch(console.error);
     } else {
       video.pause();
@@ -135,16 +139,27 @@ export const TiltCard: React.FC<TiltCardProps> = ({
         >
           {/* Main Visual Layer (With depth translation) */}
           {videoSrc ? (
-            <motion.video
-              ref={videoRef}
-              src={videoSrc}
-              style={{
-                transform: 'translateZ(20px) scale(1.05)',
-              }}
-              className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 pointer-events-none"
-              playsInline
-              loop
-            />
+            <div className="absolute inset-0 w-full h-full" style={{ transform: 'translateZ(20px) scale(1.05)' }}>
+              {/* Static Placeholder Image */}
+              <img
+                src="/man_placeholder.jpeg"
+                alt={altText}
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 pointer-events-none z-10 ${
+                  isPlaying ? 'opacity-0' : 'opacity-80 group-hover:opacity-100'
+                }`}
+              />
+              
+              {/* Video Element */}
+              <video
+                ref={videoRef}
+                src={videoSrc}
+                className="w-full h-full object-cover"
+                playsInline
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+                onEnded={() => setIsPlaying(false)}
+              />
+            </div>
           ) : (
             <motion.img
               src={imageSrc}
