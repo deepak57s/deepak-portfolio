@@ -1,20 +1,23 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 interface TiltCardProps {
-  imageSrc: string;
+  videoSrc?: string;
+  imageSrc?: string;
   altText: string;
   name: string;
   subtitle: string;
 }
 
 export const TiltCard: React.FC<TiltCardProps> = ({
+  videoSrc,
   imageSrc,
   altText,
   name,
   subtitle,
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   // Motion values to track normalized mouse coordinates (range: -0.5 to 0.5)
   const x = useMotionValue(0);
@@ -44,12 +47,44 @@ export const TiltCard: React.FC<TiltCardProps> = ({
     damping: 18,
   });
 
-  // Calculate dynamic radial gradient background for the holographic glare overlay
-  const shineBackground = useTransform([x, y], ([latestX, latestY]) => {
-    const px = (latestX as number + 0.5) * 100;
-    const py = (latestY as number + 0.5) * 100;
-    return `radial-gradient(circle 240px at ${px}% ${py}%, rgba(251, 146, 60, 0.3) 0%, rgba(147, 51, 234, 0.15) 40%, transparent 80%)`;
-  });
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const hasPlayedOnce = localStorage.getItem('video_played_once');
+
+    const handleFirstMouseMove = () => {
+      if (video.paused) {
+        video.play().catch((err) => {
+          console.log("Autoplay blocked by browser until user click: ", err);
+        });
+      }
+      localStorage.setItem('video_played_once', 'true');
+      window.removeEventListener('mousemove', handleFirstMouseMove);
+    };
+
+    if (!hasPlayedOnce) {
+      window.addEventListener('mousemove', handleFirstMouseMove);
+    }
+
+    return () => {
+      window.removeEventListener('mousemove', handleFirstMouseMove);
+    };
+  }, [videoSrc]);
+
+  const handleCardClick = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Mark as played once so next time is always click
+    localStorage.setItem('video_played_once', 'true');
+
+    if (video.paused) {
+      video.play().catch(console.error);
+    } else {
+      video.pause();
+    }
+  };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -79,6 +114,7 @@ export const TiltCard: React.FC<TiltCardProps> = ({
         ref={cardRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
+        onClick={handleCardClick}
         style={{
           rotateX,
           rotateY,
@@ -89,12 +125,6 @@ export const TiltCard: React.FC<TiltCardProps> = ({
         {/* Neon Orange & Purple Glowing ambient mesh */}
         <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/25 to-accent-purple/20 blur-3xl opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
 
-        {/* Dynamic Holographic Foil Glare / Shine */}
-        <motion.div
-          style={{ background: shineBackground }}
-          className="absolute inset-0 z-20 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 mix-blend-color-dodge"
-        />
-
         {/* Outer Fine border highlight overlay */}
         <div className="absolute inset-0 border border-white/10 rounded-3xl z-30 pointer-events-none group-hover:border-orange-500/30 transition-colors duration-500" />
 
@@ -103,15 +133,28 @@ export const TiltCard: React.FC<TiltCardProps> = ({
           style={{ transform: 'translateZ(0px)', transformStyle: 'preserve-3d' }}
           className="relative w-full h-full rounded-[23px] bg-[#0A0A0A]/95 overflow-hidden flex items-center justify-center"
         >
-          {/* Main Visual Image Layer (With depth translation) */}
-          <motion.img
-            src={imageSrc}
-            alt={altText}
-            style={{
-              transform: 'translateZ(20px) scale(1.05)',
-            }}
-            className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 pointer-events-none"
-          />
+          {/* Main Visual Layer (With depth translation) */}
+          {videoSrc ? (
+            <motion.video
+              ref={videoRef}
+              src={videoSrc}
+              style={{
+                transform: 'translateZ(20px) scale(1.05)',
+              }}
+              className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 pointer-events-none"
+              playsInline
+              loop
+            />
+          ) : (
+            <motion.img
+              src={imageSrc}
+              alt={altText}
+              style={{
+                transform: 'translateZ(20px) scale(1.05)',
+              }}
+              className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 pointer-events-none"
+            />
+          )}
 
           {/* Decorative Cybernetic Grid lines */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none z-10 opacity-40 mix-blend-overlay" />

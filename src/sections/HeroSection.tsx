@@ -3,7 +3,6 @@ import { ArrowUpRight, Mail } from 'lucide-react';
 import { Github, Linkedin } from '../components/Icons';
 import ThreePlayground from '../components/ThreePlayground';
 import Magnet from '../components/Magnet';
-import narutoPortrait from '../assets/naruto_portrait.png';
 import TiltCard from '../components/TiltCard';
 
 export const HeroSection: React.FC = () => {
@@ -96,8 +95,8 @@ export const HeroSection: React.FC = () => {
         {/* Right Side: 3D Mouse Tracking Naruto Portrait Display */}
         <div className="lg:col-span-5 flex justify-center order-1 lg:order-2">
           <TiltCard
-            imageSrc={narutoPortrait}
-            altText="Srinivas Deepak - Cyber Naruto 3D Portrait"
+            videoSrc="/man_speaking.mp4"
+            altText="Srinivas Deepak - Speaking"
             name="Srinivas Deepak"
             subtitle="India • 3D Creative Engineer"
           />
