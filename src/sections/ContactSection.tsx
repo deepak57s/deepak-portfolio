@@ -216,7 +216,7 @@ export const ContactSection: React.FC = () => {
               DEEPAK <span className="text-accent-blue">•</span> CREATIVE DEVELOPER
             </h3>
             <p className="text-[10px] text-primary-light/40 tracking-wider">
-              Representing Srinivas Deepak. Portofilo Built with React, Tailwind & Three.js.
+              Representing Srinivas Deepak. Portfolio Built with React, Tailwind & Three.js.
             </p>
           </div>
 

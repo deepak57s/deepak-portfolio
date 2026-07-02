@@ -20,7 +20,7 @@ export const MilestonesSection: React.FC = () => {
       issuer: "GalileoX (Universidad Galileo)",
       date: "Oct 2023",
       desc: "Rigorous certification in fundamental Java development. Focused on data encapsulation, inheritance, interfaces, exception handling, and core software structures.",
-      link: "https://courses.edx.org/certificates/60d9c01298aa4bd695af7238c303fe5b",
+      link: "https://courses.edx.org/certificates/e3095b9ef0164471a9e8c6e4800fe215",
       color: "from-accent-orange/20 to-transparent",
       borderColor: "group-hover:border-accent-orange/40",
       accent: "text-accent-orange",
