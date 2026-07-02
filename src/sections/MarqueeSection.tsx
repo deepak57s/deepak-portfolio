@@ -1,36 +1,55 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Cpu, Globe, Layers, Zap, Star, Shield, Sparkles } from 'lucide-react';
-import { Codepen } from '../components/Icons';
+import { motion } from 'framer-motion';
+import { Cpu, Layers, Zap, Star, Shield, Sparkles } from 'lucide-react';
+import { Codepen, Github, PythonIcon, AndroidIcon, ReactIcon, FirebaseIcon } from '../components/Icons';
 
-// Custom hook to manage mouse click-and-drag scrolling on desktop
-// and track scroll progress for both touch and mouse users.
-const useDragScroll = () => {
+const useMarqueeScroll = (direction: 'left' | 'right') => {
   const ref = useRef<HTMLDivElement>(null);
   const isDown = useRef(false);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  
+  // Track scroll position as a float to prevent browser rounding/clamping bugs
+  const scrollPosRef = useRef(0);
 
-  const updateProgress = () => {
-    if (!ref.current) return;
-    const { scrollLeft: left, scrollWidth, clientWidth } = ref.current;
-    const maxScroll = scrollWidth - clientWidth;
-    if (maxScroll <= 0) return;
-    setScrollProgress(left / maxScroll);
+  const startPause = () => {
+    setIsPaused(true);
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+  };
+
+  const endPause = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    // Sync float tracker with final drag scroll position
+    if (ref.current) {
+      scrollPosRef.current = ref.current.scrollLeft;
+    }
+    timeoutRef.current = setTimeout(() => {
+      setIsPaused(false);
+    }, 1200);
   };
 
   const onMouseDown = (e: React.MouseEvent) => {
     if (!ref.current) return;
     isDown.current = true;
+    startPause();
     ref.current.classList.add('cursor-grabbing');
     ref.current.classList.remove('cursor-grab');
     startX.current = e.pageX - ref.current.offsetLeft;
     scrollLeft.current = ref.current.scrollLeft;
+    scrollPosRef.current = ref.current.scrollLeft;
   };
 
   const onMouseLeave = () => {
-    isDown.current = false;
+    if (isDown.current) {
+      isDown.current = false;
+      endPause();
+    }
     if (ref.current) {
       ref.current.classList.add('cursor-grab');
       ref.current.classList.remove('cursor-grabbing');
@@ -38,7 +57,10 @@ const useDragScroll = () => {
   };
 
   const onMouseUp = () => {
-    isDown.current = false;
+    if (isDown.current) {
+      isDown.current = false;
+      endPause();
+    }
     if (ref.current) {
       ref.current.classList.add('cursor-grab');
       ref.current.classList.remove('cursor-grabbing');
@@ -50,91 +72,100 @@ const useDragScroll = () => {
     e.preventDefault();
     const x = e.pageX - ref.current.offsetLeft;
     const walk = (x - startX.current) * 1.5; // Drag speed multiplier
-    ref.current.scrollLeft = scrollLeft.current - walk;
-    updateProgress();
+    const targetScroll = scrollLeft.current - walk;
+    ref.current.scrollLeft = targetScroll;
+    scrollPosRef.current = targetScroll;
   };
 
-  const onScroll = () => {
-    updateProgress();
+  // Touch handlers for mobile native swipe
+  const onTouchStart = () => {
+    startPause();
+    if (ref.current) {
+      scrollPosRef.current = ref.current.scrollLeft;
+    }
+  };
+
+  const onTouchEnd = () => {
+    endPause();
   };
 
   useEffect(() => {
-    updateProgress();
-    // Re-check progress on window resize or load
-    window.addEventListener('resize', updateProgress);
-    return () => window.removeEventListener('resize', updateProgress);
-  }, []);
+    let animationFrameId: number;
+    const scroll = () => {
+      if (!isPaused && !isDown.current && ref.current) {
+        const speed = 0.5; // Slower speed
+        const half = ref.current.scrollWidth / 2;
+        if (half > 0) {
+          // Initialize scrollPosRef if needed (especially for right direction)
+          if (direction === 'right' && scrollPosRef.current === 0 && ref.current.scrollLeft === 0) {
+            scrollPosRef.current = half;
+          }
+
+          if (direction === 'left') {
+            scrollPosRef.current += speed;
+            if (scrollPosRef.current >= half) {
+              scrollPosRef.current -= half;
+            }
+          } else {
+            scrollPosRef.current -= speed;
+            if (scrollPosRef.current <= 0) {
+              scrollPosRef.current += half;
+            }
+          }
+          ref.current.scrollLeft = Math.round(scrollPosRef.current);
+        }
+      }
+      animationFrameId = requestAnimationFrame(scroll);
+    };
+    animationFrameId = requestAnimationFrame(scroll);
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [isPaused, direction]);
 
   return {
     ref,
-    scrollProgress,
     handlers: {
       onMouseDown,
       onMouseLeave,
       onMouseUp,
       onMouseMove,
-      onScroll,
+      onTouchStart,
+      onTouchEnd,
     }
   };
 };
 
 export const MarqueeSection: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [isMobile, setIsMobile] = useState(false);
-
-  const row1Drag = useDragScroll();
-  const row2Drag = useDragScroll();
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    // Set initial scroll offset on Row 2 for a dynamic staggered layout on load
-    if (row2Drag.ref.current) {
-      setTimeout(() => {
-        if (row2Drag.ref.current) {
-          row2Drag.ref.current.scrollLeft = 80;
-        }
-      }, 100);
-    }
-
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-  
-  // Track scroll inside this container
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  // Map scroll progress to horizontal translation offset (parallax shift)
-  const xLeft = useTransform(scrollYProgress, [0, 1], [-80, 80]);
-  const xRight = useTransform(scrollYProgress, [0, 1], [80, -80]);
+  const row1Scroll = useMarqueeScroll('left');
+  const row2Scroll = useMarqueeScroll('right');
 
   const row1 = [
-    { text: 'Python Expert', icon: Cpu, color: 'text-accent-emerald' },
-    { text: 'Google-ADK dev ', icon: Sparkles, color: 'text-accent-purple' },
-    { text: 'Android Devloper', icon: Globe, color: 'text-accent-orange' },
+    { text: 'Python Expert', icon: PythonIcon, color: 'text-[#3776AB]' },
+    { text: 'React Native ', icon: ReactIcon, color: 'text-[#61DAFB]' },
+    { text: 'Android Devloper', icon: AndroidIcon, color: 'text-[#3DDC84]' },
     { text: 'Front-End Dev', icon: Codepen, color: 'text-accent-purple' },
-    { text: 'Tailwind CSS Stylist', icon: Layers, color: 'text-accent-blue' },
-    { text: 'High-Performance Web', icon: Zap, color: 'text-white' },
+    { text: 'Firebase', icon: FirebaseIcon, color: 'text-[#FFCA28]' },
+    { text: 'Kotlin/React Native Dev', icon: AndroidIcon, color: 'text-white' },
+    { text: 'High-Performance Web', icon: Zap, color: 'text-accent-orange' },
+    { text: 'Git/Github', icon: Github, color: 'text-white' },
   ];
 
   const row2 = [
     { text: 'Agentic Ai deployement', icon: Star, color: 'text-accent-purple' },
     { text: 'Responsive Interfaces', icon: Layers, color: 'text-accent-blue' },
-    { text: 'Android Apps', icon: Shield, color: 'text-accent-orange' },
+    { text: 'Kotlin/React Android Apps', icon: Shield, color: 'text-accent-orange' },
     { text: 'Data Structures & Logic', icon: Cpu, color: 'text-accent-emerald' },
     { text: 'Next-Gen Portfolios', icon: Sparkles, color: 'text-white' },
     { text: 'Micro-animations', icon: Zap, color: 'text-accent-blue' },
+    { text: 'UI/UX Design', icon: Zap, color: 'text-accent-white' },
   ];
 
-  // Triplicate array for smooth continuous endless illusion
   const renderRowItems = (items: typeof row1) => {
-    return [...items, ...items, ...items].map((item, idx) => (
+    return [...items, ...items].map((item, idx) => (
       <div
         key={idx}
         className="flex items-center gap-2.5 px-6 py-3.5 mx-3 rounded-2xl glass border border-white/[0.04] text-xs font-semibold tracking-[0.18em] uppercase text-white whitespace-nowrap select-none"
@@ -145,11 +176,8 @@ export const MarqueeSection: React.FC = () => {
     ));
   };
 
-  const averageProgress = (row1Drag.scrollProgress + row2Drag.scrollProgress) / 2;
-
   return (
     <section
-      ref={containerRef}
       className="relative py-16 bg-[#090909] border-y border-white/[0.03] overflow-hidden flex flex-col gap-6"
     >
       {/* Left and Right Fade Gradients */}
@@ -158,35 +186,29 @@ export const MarqueeSection: React.FC = () => {
 
       {/* Row 1: Scrolling Left -> Right */}
       <div 
-        ref={row1Drag.ref}
-        {...row1Drag.handlers}
+        ref={row1Scroll.ref}
+        {...row1Scroll.handlers}
         className="flex w-full overflow-x-auto select-none pointer-events-auto scrollbar-none cursor-grab"
       >
-        <motion.div
-          style={isMobile ? undefined : { x: xLeft }}
-          className="flex whitespace-nowrap"
-        >
+        <div className="flex whitespace-nowrap">
           {renderRowItems(row1)}
-        </motion.div>
+        </div>
       </div>
 
       {/* Row 2: Scrolling Right -> Left */}
       <div 
-        ref={row2Drag.ref}
-        {...row2Drag.handlers}
+        ref={row2Scroll.ref}
+        {...row2Scroll.handlers}
         className="flex w-full overflow-x-auto select-none pointer-events-auto scrollbar-none cursor-grab"
       >
-        <motion.div
-          style={isMobile ? undefined : { x: xRight }}
-          className="flex whitespace-nowrap"
-        >
+        <div className="flex whitespace-nowrap">
           {renderRowItems(row2)}
-        </motion.div>
+        </div>
       </div>
 
-      {/* Interactive hint and scroll progress */}
+      {/* Interactive hint */}
       <div className="flex flex-col items-center gap-2.5 mt-4 px-4 select-none">
-        {/* Drag / Swipe Hint */}
+        {/* Drag Hint */}
         <div className="flex items-center gap-3 text-[10px] md:text-xs font-semibold uppercase tracking-[0.2em] text-primary-light/45">
           <motion.span
             animate={{ x: [-4, 4, -4] }}
@@ -195,7 +217,7 @@ export const MarqueeSection: React.FC = () => {
           >
             &larr;
           </motion.span>
-          <span>Drag or Swipe to Explore Skills</span>
+          <span>Drag/Swipe to explore • Holds for 1.2s on click</span>
           <motion.span
             animate={{ x: [4, -4, 4] }}
             transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
@@ -203,14 +225,6 @@ export const MarqueeSection: React.FC = () => {
           >
             &rarr;
           </motion.span>
-        </div>
-
-        {/* Progress Bar */}
-        <div className="w-32 md:w-48 h-[3px] bg-white/[0.06] rounded-full overflow-hidden relative mt-1">
-          <div 
-            className="h-full bg-gradient-to-r from-accent-blue via-accent-purple to-accent-orange rounded-full transition-all duration-75 ease-out"
-            style={{ width: `${Math.min(Math.max(averageProgress * 100, 0), 100)}%` }}
-          />
         </div>
       </div>
     </section>

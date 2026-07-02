@@ -6,9 +6,9 @@ import DotField from '../components/DotField';
 
 export const AboutSection: React.FC = () => {
   const stats = [
-    { label: 'Creative Tech', value: '3D Realtime', icon: Zap, color: 'bg-accent-purple/10 text-accent-purple' },
-    { label: 'Key Backend Core', value: 'Java & Logic', icon: Shield, color: 'bg-accent-emerald/10 text-accent-emerald' },
-    { label: 'Primary Language', value: 'Python / TS', icon: User, color: 'bg-accent-blue/10 text-accent-blue' },
+    { label: 'AI-ML & Android', value: 'Mobile Solutions', icon: Zap, color: 'bg-accent-purple/10 text-accent-purple' },
+    { label: 'Clean Architecture', value: 'Kotlin & Java', icon: Shield, color: 'bg-accent-emerald/10 text-accent-emerald' },
+    { label: 'Full-Stack Core', value: 'React & Firebase', icon: User, color: 'bg-accent-blue/10 text-accent-blue' },
   ];
 
   return (
@@ -48,7 +48,7 @@ export const AboutSection: React.FC = () => {
           </div>
 
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-8 font-kanit uppercase italic text-white leading-tight pr-4">
-            Bridging Art 
+            Bridging Art
             <br />
             <span className="inline-block pr-4 pb-1 text-transparent bg-clip-text bg-gradient-to-r from-accent-purple to-accent-blue">
               & Pure Logic
@@ -91,7 +91,7 @@ export const AboutSection: React.FC = () => {
             <div className="absolute top-0 left-0 w-[1px] h-8 bg-accent-purple" />
 
             <AnimatedText
-              text="I craft immersive, high-fidelity web experiences by merging robust software engineering principles with beautiful realtime 3D elements. Specializing in Python core automation and advanced Java logic, I design interactive products that are highly optimized, responsive, and visually memorable. My goal is to build digital spaces that leave a lasting impression while upholding the highest standards of code cleanlines and performance."
+              text="Motivated Computer Science graduate specializing in AI-ML and Android Application Development with strong expertise in native Android engineering, enterprise mobility solutions, backend integrations, and AI-powered systems. Passionate about building scalable, secure, and real-world software applications using modern development practices and clean architecture principles."
               className="text-xl md:text-2xl lg:text-3xl font-medium font-outfit leading-relaxed tracking-wide"
             />
 

@@ -122,13 +122,13 @@ export const TiltCard: React.FC<TiltCardProps> = ({
           rotateY,
           transformStyle: 'preserve-3d',
         }}
-        className="group relative w-72 h-72 md:w-96 md:h-96 rounded-3xl overflow-hidden p-[1px] bg-gradient-to-br from-orange-500 via-transparent to-accent-purple shadow-[0_20px_50px_rgba(249,115,22,0.25)] hover:shadow-[0_25px_60px_rgba(249,115,22,0.4)] transition-shadow duration-500 cursor-pointer"
+        className="group relative w-72 h-72 md:w-96 md:h-96 rounded-3xl overflow-hidden p-[1px] bg-gradient-to-br from-red-500 via-transparent to-accent-blue shadow-[0_20px_50px_rgba(239,68,68,0.25)] hover:shadow-[0_25px_60px_rgba(239,68,68,0.4)] transition-shadow duration-500 cursor-pointer"
       >
-        {/* Neon Orange & Purple Glowing ambient mesh */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/25 to-accent-purple/20 blur-3xl opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
+        {/* Neon Red & Blue Glowing ambient mesh */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-red-500/25 to-accent-blue/20 blur-3xl opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
 
         {/* Outer Fine border highlight overlay */}
-        <div className="absolute inset-0 border border-white/10 rounded-3xl z-30 pointer-events-none group-hover:border-orange-500/30 transition-colors duration-500" />
+        <div className="absolute inset-0 border border-white/10 rounded-3xl z-30 pointer-events-none group-hover:border-red-500/30 transition-colors duration-500" />
 
         {/* Card Body inner container */}
         <div
@@ -174,9 +174,9 @@ export const TiltCard: React.FC<TiltCardProps> = ({
           {/* Decorative Cybernetic Grid lines */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none z-10 opacity-40 mix-blend-overlay" />
 
-          {/* Double Corner Glowing Accents (Orange top-right, Purple bottom-left) */}
-          <div className="absolute top-0 right-0 w-24 h-24 bg-orange-500/10 blur-xl rounded-full z-10 group-hover:bg-orange-500/20 transition-all duration-500" />
-          <div className="absolute bottom-0 left-0 w-24 h-24 bg-accent-purple/10 blur-xl rounded-full z-10 group-hover:bg-accent-purple/20 transition-all duration-500" />
+          {/* Double Corner Glowing Accents (Red top-right, Blue bottom-left) */}
+          <div className="absolute top-0 right-0 w-24 h-24 bg-red-500/10 blur-xl rounded-full z-10 group-hover:bg-red-500/20 transition-all duration-500" />
+          <div className="absolute bottom-0 left-0 w-24 h-24 bg-accent-blue/10 blur-xl rounded-full z-10 group-hover:bg-accent-blue/20 transition-all duration-500" />
 
           {/* Embedded Parallax Overlay Card (Sits at translateZ(50px) for maximum depth separation) */}
           <motion.div
@@ -185,19 +185,19 @@ export const TiltCard: React.FC<TiltCardProps> = ({
               y: textTranslateY,
               transform: 'translateZ(50px)',
             }}
-            className="absolute bottom-5 left-5 right-5 glass p-4 rounded-xl border border-white/[0.08] backdrop-blur-md flex items-center justify-between z-30 shadow-[0_10px_30px_rgba(0,0,0,0.5)] group-hover:border-orange-500/20 transition-all duration-500"
+            className="absolute bottom-5 left-5 right-5 glass p-4 rounded-xl border border-white/[0.08] backdrop-blur-md flex items-center justify-between z-30 shadow-[0_10px_30px_rgba(0,0,0,0.5)] group-hover:border-red-500/20 transition-all duration-500"
           >
             <div>
               <h3 className="text-xs md:text-sm font-bold font-kanit uppercase tracking-wider text-white flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />
+                <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
                 {name}
               </h3>
               <p className="text-[10px] text-primary-light/60 tracking-wider mt-0.5">
                 {subtitle}
               </p>
             </div>
-            {/* Kyuubi orange pulsing active dot */}
-            <span className="w-2.5 h-2.5 rounded-full bg-orange-500 animate-pulse shadow-[0_0_12px_#f97316]" />
+            {/* Spider red pulsing active dot */}
+            <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse shadow-[0_0_12px_#ef4444]" />
           </motion.div>
         </div>
       </motion.div>

@@ -23,7 +23,7 @@ export const HeroSection: React.FC = () => {
           {/* Creative Tag */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[10px] md:text-xs font-semibold uppercase tracking-[0.25em] text-accent-blue mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-accent-blue animate-pulse" />
-            3D Creative Engineer
+            Android & Full-Stack Developer
           </div>
 
           {/* Main Title */}
@@ -40,7 +40,7 @@ export const HeroSection: React.FC = () => {
 
           {/* Subheading Description */}
           <p className="text-primary-light/70 text-base md:text-lg max-w-xl mb-8 leading-relaxed font-outfit">
-            Crafting premium interactive portfolios and high-performance Web apps. Blending robust programming fundamentals with immersive Three.js layouts.
+            Passionate Android Developer and Full-Stack Developer with a strong foundation in programming and problem-solving. I build scalable mobile applications and modern web experiences using Kotlin, Java, React, and Firebase, focusing on clean architecture, intuitive user experiences, and high-performance solutions that solve real-world problems.
           </p>
 
           {/* CTA Buttons */}
@@ -92,13 +92,13 @@ export const HeroSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Side: 3D Mouse Tracking Naruto Portrait Display */}
+        {/* Right Side: 3D Mouse Tracking Spiderman Logo Display */}
         <div className="lg:col-span-5 flex justify-center order-1 lg:order-2">
           <TiltCard
-            videoSrc="/man_speaking.mp4"
-            altText="Srinivas Deepak - Speaking"
+            imageSrc="/spider_logo.png"
+            altText="Srinivas Deepak - Spider Logo"
             name="Srinivas Deepak"
-            subtitle="India • 3D Creative Engineer"
+            subtitle="India • Android & Full-Stack"
           />
         </div>
       </div>

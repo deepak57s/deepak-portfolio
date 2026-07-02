@@ -38,15 +38,15 @@ export const MilestonesSection: React.FC = () => {
       badge: "Advanced Java"
     },
     {
-      title: "Creative Realtime Shaders & GLSL",
-      issuer: "Creative Web Labs (Upcoming Roadmap)",
+      title: "Kotlin Developer",
+      issuer: "JetBrains Academy",
       date: "Q3 2026",
-      desc: "Deepening interactive frontends with advanced custom GLSL shaders, camera tracking math, lighting engines, and real-time GPU optimizations.",
+      desc: " Harnessing Kotlin to develop robust Android applications and modern web solutions with clean architecture, concise code, and exceptional performance across multiple platforms..",
       link: "#",
       color: "from-accent-purple/20 to-transparent",
       borderColor: "group-hover:border-accent-purple/40",
       accent: "text-accent-purple",
-      badge: "GLSL / Three.js"
+      badge: "Kotlin Core"
     }
   ];
 
