@@ -4,7 +4,7 @@ import { Github } from '../components/Icons';
 import Magnet from '../components/Magnet';
 import DotField from '../components/DotField';
 import projectPortfolio from '../assets/project_portfolio.png';
-import projectEcommerce from '../assets/project_ecommerce.png';
+import projectResume from '../assets/project_resume.png';
 import projectAttendance from '../assets/project_attendance.png';
 import projectFraud from '../assets/project_fraud.png';
 
@@ -21,15 +21,15 @@ export const ProjectsSection: React.FC = () => {
       shadow: "shadow-[0_20px_50px_rgba(59,130,246,0.15)]",
       glowBg: "rgba(59, 130, 246, 0.05)",
       topOffset: "top-[100px]",
-      codeLink: "https://github.com",
+      codeLink: "https://github.com/deepak57s/deepak-portfolio",
       demoLink: "https://ds-devx.netlify.app"
     },
     {
-      title: "E-commerce website",
-      image: projectEcommerce,
-      tag: "Fullstack E-Commerce",
-      desc: "Responsive front-end with product listing, category filtering, dynamic cart, and reusable components.",
-      stack: ["React.js", "Firebase", "HTML", "CSS"],
+      title: "AI Resume Builder & Evaluator",
+      image: projectResume,
+      tag: "Machine Learning & NLP",
+      desc: "An AI-powered Resume Builder and Evaluator platform that analyzes resumes against job descriptions using NLP and Transformer-based models. Implemented ATS compatibility scoring, semantic similarity analysis, bias-aware evaluation, and recruiter-friendly candidate ranking.",
+      stack: ["Python", "Transformers", "NLP", "React.js", "FastAPI"],
       color: "from-accent-purple/30 via-accent-blue/10 to-transparent",
       accent: "text-accent-purple",
       shadow: "shadow-[0_20px_50px_rgba(192,132,252,0.15)]",
@@ -49,7 +49,7 @@ export const ProjectsSection: React.FC = () => {
       shadow: "shadow-[0_20px_50px_rgba(52,211,153,0.15)]",
       glowBg: "rgba(52, 211, 153, 0.05)",
       topOffset: "top-[160px]",
-      codeLink: "https://github.com",
+      codeLink: "https://github.com/deepak57s/Tapin",
       demoLink: "#contact"
     },
     {
@@ -130,7 +130,7 @@ export const ProjectsSection: React.FC = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none z-[1]" />
                   <div className="absolute top-0 right-0 w-24 h-24 bg-white/[0.02] rounded-full blur-xl pointer-events-none" />
-                  
+
                   {/* Decorative Project Icon Screen */}
                   <div className="relative z-10 flex justify-between items-start">
                     <span className="text-[10px] uppercase font-bold tracking-widest text-primary-light/30">
@@ -155,7 +155,7 @@ export const ProjectsSection: React.FC = () => {
                   <span className={`text-[10px] uppercase font-bold tracking-[0.2em] mb-3 ${project.accent}`}>
                     {project.tag}
                   </span>
-                  
+
                   <h3 className="text-2xl md:text-3xl font-extrabold font-kanit text-white leading-tight uppercase mb-4">
                     {project.title}
                   </h3>

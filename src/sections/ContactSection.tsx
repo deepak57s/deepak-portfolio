@@ -13,12 +13,12 @@ export const ContactSection: React.FC = () => {
     if (!formData.name || !formData.email || !formData.message) return;
 
     setStatus('sending');
-    
+
     // Dispatch actual mail client opening using mailto
     const subject = encodeURIComponent(`Portfolio Message from ${formData.name}`);
     const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
     const mailtoUrl = `mailto:deepakparker222@gmail.com?subject=${subject}&body=${body}`;
-    
+
     // Trigger opening default client
     window.location.href = mailtoUrl;
 
@@ -55,7 +55,7 @@ export const ContactSection: React.FC = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
-          
+
           {/* Left Column: Context Card */}
           <div className="lg:col-span-5 flex flex-col items-start text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-semibold uppercase tracking-[0.2em] text-accent-blue mb-6">
@@ -124,7 +124,7 @@ export const ContactSection: React.FC = () => {
           {/* Right Column: Contact Form */}
           <div className="lg:col-span-7 w-full">
             <div className="glass-panel p-8 md:p-12 rounded-[32px] border border-white/[0.04] relative">
-              
+
               {status === 'success' ? (
                 <div className="py-16 flex flex-col items-center justify-center text-center animate-fadeIn">
                   <div className="w-16 h-16 rounded-full bg-accent-emerald/10 border border-accent-emerald/20 flex items-center justify-center text-accent-emerald mb-6">
@@ -216,7 +216,7 @@ export const ContactSection: React.FC = () => {
               DEEPAK <span className="text-accent-blue">•</span> CREATIVE DEVELOPER
             </h3>
             <p className="text-[10px] text-primary-light/40 tracking-wider">
-              Representing Srinivas Deepak. Built with React, Tailwind & Three.js.
+              Representing Srinivas Deepak. Portofilo Built with React, Tailwind & Three.js.
             </p>
           </div>
 
