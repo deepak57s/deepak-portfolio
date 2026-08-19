@@ -1,7 +1,17 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Cpu, Layers, Zap, Star, Shield, Sparkles } from 'lucide-react';
-import { Codepen, Github, PythonIcon, AndroidIcon, ReactIcon, FirebaseIcon } from '../components/Icons';
+import { Cpu, Layers, Zap, Star, Shield, Boxes } from 'lucide-react';
+import {
+  PythonIcon,
+  AndroidIcon,
+  ReactIcon,
+  FirebaseIcon,
+  KotlinIcon,
+  JavaIcon,
+  ComposeIcon,
+  GitIcon,
+  PostmanIcon
+} from '../components/Icons';
 
 const useMarqueeScroll = (direction: 'left' | 'right') => {
   const ref = useRef<HTMLDivElement>(null);
@@ -10,8 +20,6 @@ const useMarqueeScroll = (direction: 'left' | 'right') => {
   const scrollLeft = useRef(0);
   const [isPaused, setIsPaused] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  
-  // Track scroll position as a float to prevent browser rounding/clamping bugs
   const scrollPosRef = useRef(0);
 
   const startPause = () => {
@@ -25,7 +33,6 @@ const useMarqueeScroll = (direction: 'left' | 'right') => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
-    // Sync float tracker with final drag scroll position
     if (ref.current) {
       scrollPosRef.current = ref.current.scrollLeft;
     }
@@ -71,13 +78,12 @@ const useMarqueeScroll = (direction: 'left' | 'right') => {
     if (!isDown.current || !ref.current) return;
     e.preventDefault();
     const x = e.pageX - ref.current.offsetLeft;
-    const walk = (x - startX.current) * 1.5; // Drag speed multiplier
+    const walk = (x - startX.current) * 1.5;
     const targetScroll = scrollLeft.current - walk;
     ref.current.scrollLeft = targetScroll;
     scrollPosRef.current = targetScroll;
   };
 
-  // Touch handlers for mobile native swipe
   const onTouchStart = () => {
     startPause();
     if (ref.current) {
@@ -93,10 +99,9 @@ const useMarqueeScroll = (direction: 'left' | 'right') => {
     let animationFrameId: number;
     const scroll = () => {
       if (!isPaused && !isDown.current && ref.current) {
-        const speed = 0.5; // Slower speed
+        const speed = 0.5;
         const half = ref.current.scrollWidth / 2;
         if (half > 0) {
-          // Initialize scrollPosRef if needed (especially for right direction)
           if (direction === 'right' && scrollPosRef.current === 0 && ref.current.scrollLeft === 0) {
             scrollPosRef.current = half;
           }
@@ -144,31 +149,32 @@ export const MarqueeSection: React.FC = () => {
   const row2Scroll = useMarqueeScroll('right');
 
   const row1 = [
-    { text: 'Python Expert', icon: PythonIcon, color: 'text-[#3776AB]' },
-    { text: 'React Native ', icon: ReactIcon, color: 'text-[#61DAFB]' },
-    { text: 'Android Devloper', icon: AndroidIcon, color: 'text-[#3DDC84]' },
-    { text: 'Front-End Dev', icon: Codepen, color: 'text-accent-purple' },
-    { text: 'Firebase', icon: FirebaseIcon, color: 'text-[#FFCA28]' },
-    { text: 'Kotlin/React Native Dev', icon: AndroidIcon, color: 'text-white' },
-    { text: 'High-Performance Web', icon: Zap, color: 'text-accent-orange' },
-    { text: 'Git/Github', icon: Github, color: 'text-white' },
+    { text: 'Kotlin Native', icon: KotlinIcon, color: 'text-[#A855F7]' },
+    { text: 'Android Developer', icon: AndroidIcon, color: 'text-[#3DDC84]' },
+    { text: 'Jetpack Compose', icon: ComposeIcon, color: 'text-[#38BDF8]' },
+    { text: 'Java Core & OOP', icon: JavaIcon, color: 'text-[#FB923C]' },
+    { text: 'Clean Architecture (MVVM/MVI)', icon: Shield, color: 'text-accent-blue' },
+    { text: 'Firebase Cloud Platform', icon: FirebaseIcon, color: 'text-[#FFCA28]' },
+    { text: 'Python & AI-ML', icon: PythonIcon, color: 'text-[#3776AB]' },
+    { text: 'REST APIs & Postman', icon: PostmanIcon, color: 'text-[#FF6C37]' },
   ];
 
   const row2 = [
-    { text: 'Agentic Ai deployement', icon: Star, color: 'text-accent-purple' },
-    { text: 'Responsive Interfaces', icon: Layers, color: 'text-accent-blue' },
-    { text: 'Kotlin/React Android Apps', icon: Shield, color: 'text-accent-orange' },
-    { text: 'Data Structures & Logic', icon: Cpu, color: 'text-accent-emerald' },
-    { text: 'Next-Gen Portfolios', icon: Sparkles, color: 'text-white' },
-    { text: 'Micro-animations', icon: Zap, color: 'text-accent-blue' },
-    { text: 'UI/UX Design', icon: Zap, color: 'text-accent-white' },
+    { text: 'SAP MM & P2P Cycles', icon: Boxes, color: 'text-[#38BDF8]' },
+    { text: 'Fintech Banking UI', icon: Zap, color: 'text-[#34D399]' },
+    { text: 'Aadhaar Biometric Auth', icon: Shield, color: 'text-accent-purple' },
+    { text: 'Git & Version Control', icon: GitIcon, color: 'text-[#F05032]' },
+    { text: 'React & Modern Frontend', icon: ReactIcon, color: 'text-[#61DAFB]' },
+    { text: 'NLP & Sentence-BERT', icon: Cpu, color: 'text-[#C084FC]' },
+    { text: 'Responsive Interfaces', icon: Layers, color: 'text-[#38BDF8]' },
+    { text: 'UI/UX Design Systems', icon: Star, color: 'text-[#FBBF24]' },
   ];
 
   const renderRowItems = (items: typeof row1) => {
     return [...items, ...items].map((item, idx) => (
       <div
         key={idx}
-        className="flex items-center gap-2.5 px-6 py-3.5 mx-3 rounded-2xl glass border border-white/[0.04] text-xs font-semibold tracking-[0.18em] uppercase text-white whitespace-nowrap select-none"
+        className="flex items-center gap-2.5 px-6 py-3.5 mx-3 rounded-2xl glass border border-white/[0.04] text-xs font-semibold tracking-[0.18em] uppercase text-white whitespace-nowrap select-none hover:border-white/20 transition-colors"
       >
         <item.icon className={`w-4 h-4 ${item.color}`} />
         {item.text}
@@ -178,13 +184,13 @@ export const MarqueeSection: React.FC = () => {
 
   return (
     <section
-      className="relative py-16 bg-[#090909] border-y border-white/[0.03] overflow-hidden flex flex-col gap-6"
+      className="relative py-14 bg-[#090909] border-y border-white/[0.03] overflow-hidden flex flex-col gap-5"
     >
-      {/* Left and Right Fade Gradients */}
+      {/* Left and Right Edge Fade Gradients */}
       <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-[#090909] to-transparent z-10 pointer-events-none" />
       <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-[#090909] to-transparent z-10 pointer-events-none" />
 
-      {/* Row 1: Scrolling Left -> Right */}
+      {/* Row 1: Scrolling Left */}
       <div 
         ref={row1Scroll.ref}
         {...row1Scroll.handlers}
@@ -195,7 +201,7 @@ export const MarqueeSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Row 2: Scrolling Right -> Left */}
+      {/* Row 2: Scrolling Right */}
       <div 
         ref={row2Scroll.ref}
         {...row2Scroll.handlers}
@@ -206,26 +212,23 @@ export const MarqueeSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Interactive hint */}
-      <div className="flex flex-col items-center gap-2.5 mt-4 px-4 select-none">
-        {/* Drag Hint */}
-        <div className="flex items-center gap-3 text-[10px] md:text-xs font-semibold uppercase tracking-[0.2em] text-primary-light/45">
-          <motion.span
-            animate={{ x: [-4, 4, -4] }}
-            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-            className="text-accent-blue"
-          >
-            &larr;
-          </motion.span>
-          <span>Drag/Swipe to explore • Holds for 1.2s on click</span>
-          <motion.span
-            animate={{ x: [4, -4, 4] }}
-            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-            className="text-accent-purple"
-          >
-            &rarr;
-          </motion.span>
-        </div>
+      {/* Interactive Drag Hint */}
+      <div className="flex items-center justify-center gap-3 text-[10px] md:text-xs font-semibold uppercase tracking-[0.2em] text-primary-light/40 select-none mt-2">
+        <motion.span
+          animate={{ x: [-3, 3, -3] }}
+          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+          className="text-accent-blue"
+        >
+          &larr;
+        </motion.span>
+        <span>Drag or swipe to explore stack</span>
+        <motion.span
+          animate={{ x: [3, -3, 3] }}
+          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+          className="text-accent-purple"
+        >
+          &rarr;
+        </motion.span>
       </div>
     </section>
   );
