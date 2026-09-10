@@ -10,11 +10,8 @@ import {
   Smartphone,
   Wrench,
   ShieldCheck,
-  HeartHandshake,
-  Boxes,
-  Workflow
+  HeartHandshake
 } from 'lucide-react';
-import Magnet from '../components/Magnet';
 import {
   KotlinIcon,
   JavaIcon,
@@ -24,9 +21,10 @@ import {
   ReactIcon,
   FirebaseIcon,
   GitIcon,
-  PostmanIcon,
-  FigmaIcon
+  PostmanIcon
 } from '../components/Icons';
+import CreepyButton from '../components/CreepyButton';
+import CandyButton from '../components/CandyButton';
 
 export const BackgroundScreen: React.FC = () => {
   // Education Records
@@ -36,8 +34,8 @@ export const BackgroundScreen: React.FC = () => {
       institution: 'Raghu Institute of Technology (Autonomous)',
       duration: 'Aug 2022 – Apr 2026',
       grade: '8.53 CGPA',
-      gradeType: 'Cumulative GPA',
-      status: 'Final Year Undergrad',
+      gradeType: '',
+      status: 'CSE (AI-ML) Graduate',
       highlights: [
         'Specialization in Artificial Intelligence and Machine Learning',
         'Core coursework: Advanced DSA, Neural Networks, Database Management Systems, Computer Networks, OOP with Java/Kotlin',
@@ -50,12 +48,12 @@ export const BackgroundScreen: React.FC = () => {
       institution: 'Sasi Junior College',
       duration: 'Jun 2020 – May 2022',
       grade: '95.2%',
-      gradeType: 'Board Percentage',
+      gradeType: '',
       status: 'Completed with Distinction',
       highlights: [
         'Top-tier academic standing with 95.2% aggregate in State Board Examinations',
         'Strong mathematical foundation in calculus, coordinate geometry, and statistics',
-        'Developed rigorous logical reasoning and computational thinking',
+        'Developed rigorous logical reasoning',
       ],
       badgeColor: 'from-accent-emerald/20 to-accent-blue/20 text-accent-emerald border-accent-emerald/30',
     },
@@ -70,15 +68,15 @@ export const BackgroundScreen: React.FC = () => {
       description: 'Core languages for native mobile, algorithmic logic, and backend processing',
       skills: [
         { name: 'Kotlin', level: 'Advanced / Production', icon: KotlinIcon, color: 'text-[#A855F7]' },
-        { name: 'Java', level: 'Advanced / OOP', icon: JavaIcon, color: 'text-[#FB923C]' },
+        { name: 'Java', level: 'Proficent', icon: JavaIcon, color: 'text-[#FB923C]' },
         { name: 'Python', level: 'Proficient / AI-ML', icon: PythonIcon, color: 'text-[#3776AB]' },
-        { name: 'JavaScript / ES6+', level: 'Proficient / Web', icon: ReactIcon, color: 'text-[#61DAFB]' },
-        { name: 'SQL', level: 'Intermediate / Queries', icon: Code2, color: 'text-[#34D399]' },
+        { name: 'Html/Css/JavaScript ', level: 'Proficient / Web', icon: ReactIcon, color: 'text-[#61DAFB]' },
+       
       ],
     },
     {
       id: 'mobile',
-      title: 'Mobile & Frameworks',
+      title: 'Mobile Applications & Frameworks',
       icon: Smartphone,
       description: 'Native Android ecosystem, reactive UI, and backend services',
       skills: [
@@ -87,18 +85,7 @@ export const BackgroundScreen: React.FC = () => {
         { name: 'Android Studio', level: 'Primary IDE & Profiler', icon: AndroidIcon, color: 'text-[#3DDC84]' },
         { name: 'Firebase & Firestore', level: 'Realtime / Auth / FCM', icon: FirebaseIcon, color: 'text-[#FFCA28]' },
         { name: 'React Native', level: 'Cross-Platform UI', icon: ReactIcon, color: 'text-[#61DAFB]' },
-        { name: 'REST APIs & Retrofit', level: 'Network Architecture', icon: Code2, color: 'text-[#F43F5E]' },
-      ],
-    },
-    {
-      id: 'sap',
-      title: 'SAP Enterprise ERP',
-      icon: Boxes,
-      description: 'Enterprise supply chain, materials procurement, and financial accounting modules',
-      skills: [
-        { name: 'SAP MM (Materials Management)', level: 'Fundamentals & Configuration', icon: Boxes, color: 'text-accent-blue' },
-        { name: 'Procure-to-Pay (P2P)', level: 'End-to-End Cycle & Purchasing', icon: Workflow, color: 'text-accent-emerald' },
-        { name: 'SAP FICO Awareness', level: 'Financial Accounting & Controlling', icon: ShieldCheck, color: 'text-accent-purple' },
+        { name: 'REST APIs Handling', level: 'Network Architecture', icon: Code2, color: 'text-[#F43F5E]' },
       ],
     },
     {
@@ -110,8 +97,6 @@ export const BackgroundScreen: React.FC = () => {
         { name: 'Git', level: 'Version Control', icon: GitIcon, color: 'text-[#F05032]' },
         { name: 'GitHub', level: 'CI/CD & Collaboration', icon: Code2, color: 'text-white' },
         { name: 'Postman', level: 'API Testing & Mocking', icon: PostmanIcon, color: 'text-[#FF6C37]' },
-        { name: 'Android Profiler', level: 'Memory & Thread Analysis', icon: AndroidIcon, color: 'text-[#3DDC84]' },
-        { name: 'Figma', level: 'UI/UX Specs & Prototypes', icon: FigmaIcon, color: 'text-[#A855F7]' },
       ],
     },
     {
@@ -120,23 +105,21 @@ export const BackgroundScreen: React.FC = () => {
       icon: ShieldCheck,
       description: 'Enterprise architecture patterns, security compliance, and engineering discipline',
       skills: [
-        { name: 'Clean Architecture (MVVM/MVI)', level: 'Domain/Data/UI Separation', icon: ShieldCheck, color: 'text-accent-blue' },
+        { name: 'Architecture (MVVM/MVI)', level: 'Domain/Data/UI Separation', icon: ShieldCheck, color: 'text-accent-blue' },
         { name: 'Fintech Transaction Workflows', level: 'Secure Banking Modules', icon: ShieldCheck, color: 'text-accent-emerald' },
-        { name: 'UIDAI Biometric RD Services', level: 'Aadhaar Auth Integration', icon: ShieldCheck, color: 'text-accent-purple' },
-        { name: 'Agile & Scrum Practices', level: 'Sprint Cycles & Reviews', icon: ShieldCheck, color: 'text-accent-orange' },
         { name: 'Responsive Web & Mobile Design', level: 'Multi-Device Layouts', icon: ShieldCheck, color: 'text-accent-blue' },
       ],
     },
     {
       id: 'softskills',
-      title: 'Soft Skills & Leadership',
+      title: 'Soft Skills',
       icon: HeartHandshake,
       description: 'Interpersonal capabilities, collaborative mindset, and structured problem-solving',
       skills: [
         { name: 'Analytical Problem Solving', level: 'Algorithmic Optimization', icon: HeartHandshake, color: 'text-accent-purple' },
-        { name: 'Cross-Functional Coordination', level: 'Agile Collaboration', icon: HeartHandshake, color: 'text-accent-blue' },
+        { name: 'Team Coordination', level: 'Agile Collaboration', icon: HeartHandshake, color: 'text-accent-blue' },
         { name: 'Critical Thinking & Debugging', level: 'Root Cause Resolution', icon: HeartHandshake, color: 'text-accent-emerald' },
-        { name: 'Technical Documentation', level: 'Clear API & Code Specs', icon: HeartHandshake, color: 'text-accent-orange' },
+        { name: 'Technical Documentation', level: 'classified work presentation', icon: HeartHandshake, color: 'text-accent-orange' },
       ],
     },
   ];
@@ -159,7 +142,7 @@ export const BackgroundScreen: React.FC = () => {
       date: 'Jan 2024 – Apr 2024',
       category: 'Object-Oriented Programming',
       description: 'Earned Elite + Silver certificate for advanced Java programming covering multithreading, collections framework, JVM architecture, and generics.',
-      link: 'https://nptel.ac.in/noc/Ecertificate/?q=NPTEL24CS43S75020037130279860',
+      link: 'https://nptel.ac.in/noc/E_Certificate/NPTEL24CS43S97020049130745346',
       icon: JavaIcon,
       badgeColor: 'text-[#FB923C] border-[#FB923C]/30 bg-[#FB923C]/10',
     },
@@ -169,7 +152,7 @@ export const BackgroundScreen: React.FC = () => {
       date: 'Dec 2023',
       category: 'Computer Science & AI',
       description: 'Comprehensive curriculum in Python fundamentals, algorithm complexity, object-oriented design, regular expressions, unit testing, and libraries.',
-      link: 'https://courses.edx.org/certificates/0b050d287ee34cb5b617300c0f993d01',
+      link: 'https://courses.edx.org/certificates/60d9c01298aa4bd695af7238c303fe5b',
       icon: PythonIcon,
       badgeColor: 'text-[#3776AB] border-[#3776AB]/30 bg-[#3776AB]/10',
     },
@@ -179,7 +162,7 @@ export const BackgroundScreen: React.FC = () => {
       date: 'Earned Credential',
       category: 'AI & Data Ethics',
       description: 'Explores the ethical implications of Large Language Models and AI deployment, including transparency, bias mitigation, accountability, and privacy.',
-      link: 'https://www.linkedin.com/learning/certificates/',
+      link: 'https://www.linkedin.com/learning/certificates/1ee3dd1532a2182fef409e9cc56fcb59219df2975b9fb4dbac587dc8384f11f',
       icon: Award,
       badgeColor: 'text-[#34D399] border-[#34D399]/30 bg-[#34D399]/10',
     },
@@ -189,7 +172,7 @@ export const BackgroundScreen: React.FC = () => {
       date: 'Oct 2023',
       category: 'Software Engineering',
       description: 'Rigorous training in foundational Java syntax, data structures, algorithms, modular code development, and debugging methodologies.',
-      link: 'https://courses.edx.org/certificates/a5214064d7df40a6bda6391d4e0e56aa',
+      link: 'https://courses.edx.org/certificates/e3095b9ef0164471a9e8c6e4800fe215',
       icon: JavaIcon,
       badgeColor: 'text-accent-blue border-accent-blue/30 bg-accent-blue/10',
     },
@@ -211,11 +194,11 @@ export const BackgroundScreen: React.FC = () => {
         {/* ========================================================================= */}
         <div className="flex flex-col gap-10">
           <div className="flex flex-col items-start text-left max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-purple mb-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-semibold uppercase tracking-[0.2em] text-accent-purple mb-4">
               <GraduationCap className="w-3.5 h-3.5 text-accent-purple" />
               Academic Foundation
             </div>
-            <h2 className="text-3xl md:text-5xl font-extrabold font-kanit uppercase italic text-white tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-extrabold font-kanit italic text-white tracking-tight">
               Education &
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-purple to-accent-blue ml-3">
                 Credentials
@@ -243,7 +226,7 @@ export const BackgroundScreen: React.FC = () => {
 
                 <div>
                   <div className="flex items-start justify-between gap-4 mb-4">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-primary-light/50 font-outfit">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-primary-light/70 font-outfit">
                       {edu.duration}
                     </span>
                     <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border bg-gradient-to-r ${edu.badgeColor}`}>
@@ -272,9 +255,9 @@ export const BackgroundScreen: React.FC = () => {
                   </ul>
                 </div>
 
-                <div className="pt-4 border-t border-white/[0.05] flex items-center justify-between text-xs text-primary-light/40">
+                <div className="pt-4 border-t border-white/[0.05] flex items-center justify-between text-xs text-primary-light/70">
                   <span>{edu.gradeType}</span>
-                  <span className="text-primary-light/70 font-medium">{edu.status}</span>
+                  <span className="text-white font-medium">{edu.status}</span>
                 </div>
               </motion.div>
             ))}
@@ -286,18 +269,18 @@ export const BackgroundScreen: React.FC = () => {
         {/* ========================================================================= */}
         <div className="flex flex-col gap-10">
           <div className="flex flex-col items-start text-left max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-blue mb-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-semibold uppercase tracking-[0.2em] text-accent-blue mb-4">
               <Code2 className="w-3.5 h-3.5 text-accent-blue" />
               Technical Arsenal
             </div>
-            <h2 className="text-3xl md:text-5xl font-extrabold font-kanit uppercase italic text-white tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-extrabold font-kanit italic text-white tracking-tight">
               Skills
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-accent-emerald ml-3">
                 & Capabilities
               </span>
             </h2>
             <p className="text-primary-light/70 text-sm md:text-base mt-3 leading-relaxed font-outfit">
-              Specialized in production-grade mobile engineering, enterprise SAP ERP systems, clean architectural design patterns, and hardware/biometric integrations.
+              Specialized in production-grade mobile engineering, clean architectural design patterns, and hardware/biometric integrations.
             </p>
           </div>
 
@@ -324,7 +307,7 @@ export const BackgroundScreen: React.FC = () => {
                       </h3>
                     </div>
                   </div>
-                  <p className="text-xs text-primary-light/50 mb-6 font-outfit">
+                  <p className="text-xs text-primary-light/70 mb-6 font-outfit">
                     {cat.description}
                   </p>
 
@@ -341,7 +324,7 @@ export const BackgroundScreen: React.FC = () => {
                             {skill.name}
                           </span>
                         </div>
-                        <span className="text-[10px] uppercase tracking-wider text-primary-light/50 font-medium">
+                        <span className="text-xs uppercase tracking-wider text-primary-light/70 font-medium">
                           {skill.level}
                         </span>
                       </div>
@@ -358,11 +341,11 @@ export const BackgroundScreen: React.FC = () => {
         {/* ========================================================================= */}
         <div className="flex flex-col gap-10">
           <div className="flex flex-col items-start text-left max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-emerald mb-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-semibold uppercase tracking-[0.2em] text-accent-emerald mb-4">
               <Award className="w-3.5 h-3.5 text-accent-emerald" />
               Verified Industry Milestones
             </div>
-            <h2 className="text-3xl md:text-5xl font-extrabold font-kanit uppercase italic text-white tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-extrabold font-kanit italic text-white tracking-tight">
               Honors &
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-emerald to-accent-blue ml-3">
                 Certifications
@@ -390,12 +373,12 @@ export const BackgroundScreen: React.FC = () => {
                     <div className={`p-2.5 rounded-xl border ${cert.badgeColor}`}>
                       <cert.icon className="w-5 h-5" />
                     </div>
-                    <span className="text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.06] text-primary-light/60 font-medium">
+                    <span className="text-xs uppercase tracking-widest px-2.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.06] text-primary-light/70 font-medium">
                       {cert.date}
                     </span>
                   </div>
 
-                  <span className="text-[10px] uppercase tracking-widest font-semibold text-accent-blue mb-1 block">
+                  <span className="text-xs uppercase tracking-widest font-semibold text-accent-blue mb-1 block">
                     {cert.issuer}
                   </span>
 
@@ -403,26 +386,38 @@ export const BackgroundScreen: React.FC = () => {
                     {cert.title}
                   </h3>
 
-                  <p className="text-xs text-primary-light/65 font-outfit leading-relaxed mb-6">
+                  <p className="text-xs text-primary-light/70 font-outfit leading-relaxed mb-6">
                     {cert.description}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-white/[0.05] flex items-center justify-between">
-                  <span className="text-[10px] uppercase tracking-wider text-primary-light/40 font-medium">
+                <div className="pt-4 border-t border-white/[0.05] flex items-center justify-between gap-3">
+                  <span className="text-xs uppercase tracking-wider text-primary-light/70 font-medium">
                     {cert.category}
                   </span>
-                  <Magnet range={25} strength={0.3}>
-                    <a
-                      href={cert.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1 text-xs font-semibold text-white/80 hover:text-white transition-colors group-hover:underline"
-                    >
-                      Verify
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
-                  </Magnet>
+                  <div className="flex-shrink-0">
+                    {idx === 1 || idx === 4 ? (
+                      <CreepyButton
+                        onClick={() => window.open(cert.link, '_blank', 'noopener,noreferrer')}
+                        aria-label={`Verify ${cert.title}`}
+                      >
+                        <span className="inline-flex items-center gap-1.5">
+                          Verify
+                          <ExternalLink className="w-3 h-3" />
+                        </span>
+                      </CreepyButton>
+                    ) : (
+                      <CandyButton
+                        onClick={() => window.open(cert.link, '_blank', 'noopener,noreferrer')}
+                        aria-label={`Verify ${cert.title}`}
+                      >
+                        <span className="inline-flex items-center gap-1.5">
+                          Verify
+                          <ExternalLink className="w-3 h-3" />
+                        </span>
+                      </CandyButton>
+                    )}
+                  </div>
                 </div>
               </motion.div>
             ))}

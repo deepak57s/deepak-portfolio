@@ -133,7 +133,7 @@ export const TiltCard: React.FC<TiltCardProps> = ({
         {/* Card Body inner container */}
         <div
           style={{ transform: 'translateZ(0px)', transformStyle: 'preserve-3d' }}
-          className="relative w-full h-full rounded-[23px] bg-[#0A0A0A]/95 overflow-hidden flex items-center justify-center"
+          className="relative w-full h-full rounded-3xl bg-[#0A0A0A]/95 overflow-hidden flex items-center justify-center"
         >
           {/* Main Visual Layer (With depth translation) */}
           {videoSrc ? (
@@ -188,11 +188,11 @@ export const TiltCard: React.FC<TiltCardProps> = ({
             className="absolute bottom-5 left-5 right-5 glass p-4 rounded-xl border border-white/[0.08] backdrop-blur-md flex items-center justify-between z-30 shadow-[0_10px_30px_rgba(0,0,0,0.5)] group-hover:border-red-500/20 transition-all duration-500"
           >
             <div>
-              <h3 className="text-xs md:text-sm font-bold font-kanit uppercase tracking-wider text-white flex items-center gap-1.5">
+              <p className="text-xs md:text-sm font-bold font-kanit tracking-wider text-white flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
                 {name}
-              </h3>
-              <p className="text-[10px] text-primary-light/60 tracking-wider mt-0.5">
+              </p>
+              <p className="text-xs text-primary-light/70 tracking-wider mt-0.5">
                 {subtitle}
               </p>
             </div>

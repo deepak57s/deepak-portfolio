@@ -138,36 +138,36 @@ export const WorkScreen: React.FC = () => {
       flagship: false,
       image: horizonImg,
       description:
-        'Full-stack vanilla JavaScript weather dashboard deployed on GitHub Pages with zero external frameworks and requiring no API keys. Integrated the Open-Meteo REST API for live weather telemetry, timezone picker, geolocation lookups, custom sun-arc SVG visualization, and 7-day forecast view.',
+        'A sleek, responsive weather dashboard built with Vanilla JavaScript and CSS3, integrating Open-Meteo REST APIs for real-time weather telemetry, temperature trends, wind speed calculations, and interactive city search with zero framework overhead.',
       features: [
-        'Live weather integration via Open-Meteo API',
-        'Custom interactive sun-arc SVG visualization',
-        'Dynamic timezone switcher & geolocation detection',
-        'Clean zero-dependency Vanilla ES6+ architecture',
+        'Real-time weather data via Open-Meteo REST API',
+        'Dynamic weather condition animations and UI feedback',
+        'Lightweight Vanilla JS architecture with zero bloat',
+        'Fully responsive glassmorphic weather cards',
       ],
-      tech: ['JavaScript (ES6+)', 'HTML5 / CSS3', 'Open-Meteo REST API', 'SVG Graphics', 'GitHub Pages'],
-      github: 'https://github.com/deepak57s',
-      live: 'https://deepak57s.github.io/project2VN',
+      tech: ['JavaScript ES6+', 'Open-Meteo API', 'CSS3 Glassmorphism', 'HTML5'],
+      github: 'https://github.com/deepak57s/project2VN',
+      live: 'https://deepak57s.github.io/project2VN/',
       liveText: 'Live Web App',
     },
     {
       id: 'developer-portfolio',
       category: 'web',
-      title: 'Personal 3D Developer Portfolio',
-      subtitle: 'React, Three.js WebGL & Framer Motion',
+      title: 'Personal Developer Portfolio',
+      subtitle: 'React 19, Three.js WebGL & Framer Motion',
       flagship: false,
       image: portfolioImg,
       description:
-        'Engineered an interactive 4-screen portfolio featuring Three.js/R3F WebGL 3D canvas backgrounds, Framer Motion spring physics and micro-interactions, responsive Tailwind CSS layouts, and seamless anchor navigation.',
+        'A cutting-edge developer portfolio showcasing 3D WebGL spatial computing, interactive particle fields, gyro-based physics, and seamless responsive design systems.',
       features: [
-        'Interactive 3D Three.js particle & geometry canvas',
-        'Framer Motion spring physics & tilt card shaders',
-        '4-screen connected unified architecture',
-        'Production-optimized bundle & responsive layouts',
+        'Interactive 3D particle canvas and shader backgrounds',
+        'Smooth parallax depth layering and gyroscope tracking',
+        'Modular screen navigation with zero layout shift',
+        'Sub-second first-contentful-paint on edge CDN',
       ],
-      tech: ['React 19', 'TypeScript', 'Three.js / R3F', 'Tailwind CSS', 'Framer Motion'],
+      tech: ['React 19', 'Three.js', 'Framer Motion', 'Tailwind CSS', 'TypeScript'],
       github: 'https://github.com/deepak57s/deepak-portfolio',
-      live: 'https://deepak-portfolio-orpin-xi.vercel.app',
+      live: 'https://deepak-portfolio-orpin-xi.vercel.app/',
       liveText: 'Live Deployment',
     },
   ];
@@ -193,11 +193,11 @@ export const WorkScreen: React.FC = () => {
         {/* ========================================================================= */}
         <div className="flex flex-col gap-10">
           <div className="flex flex-col items-start text-left max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-blue mb-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-semibold uppercase tracking-[0.2em] text-accent-blue mb-4">
               <Briefcase className="w-3.5 h-3.5 text-accent-blue" />
               Industry Experience
             </div>
-            <h2 className="text-3xl md:text-5xl font-extrabold font-kanit uppercase italic text-white tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-extrabold font-kanit italic text-white tracking-tight">
               Work &
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-accent-purple ml-3">
                 Track Record
@@ -240,7 +240,7 @@ export const WorkScreen: React.FC = () => {
                       <span className="text-xs font-bold text-white px-3 py-1 rounded-full bg-white/[0.06] border border-white/[0.08] inline-block">
                         {exp.duration}
                       </span>
-                      <span className="text-[11px] text-primary-light/50 font-medium font-outfit">
+                      <span className="text-xs text-primary-light/70 font-medium font-outfit">
                         {exp.tenure}
                       </span>
                     </div>
@@ -262,7 +262,7 @@ export const WorkScreen: React.FC = () => {
 
                   {/* Tech stack pills */}
                   <div className="pt-6 border-t border-white/[0.05] flex flex-wrap items-center gap-2">
-                    <span className="text-[10px] uppercase tracking-wider text-primary-light/40 font-semibold mr-2">
+                    <span className="text-xs uppercase tracking-wider text-primary-light/50 font-semibold mr-2">
                       Key Technologies:
                     </span>
                     {exp.techStack.map((tech, tIdx) => (
@@ -287,11 +287,11 @@ export const WorkScreen: React.FC = () => {
         <div className="flex flex-col gap-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="flex flex-col items-start text-left max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-purple mb-4">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-semibold uppercase tracking-[0.2em] text-accent-purple mb-4">
                 <Smartphone className="w-3.5 h-3.5 text-accent-purple" />
                 Featured Portfolio
               </div>
-              <h2 className="text-3xl md:text-5xl font-extrabold font-kanit uppercase italic text-white tracking-tight">
+              <h2 className="text-3xl md:text-5xl font-extrabold font-kanit italic text-white tracking-tight">
                 Engineering &
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-purple via-accent-blue to-accent-emerald ml-3">
                   Production Works
@@ -346,11 +346,11 @@ export const WorkScreen: React.FC = () => {
                       <div>
                         <div className="flex items-center gap-3 mb-3">
                           {project.flagship && (
-                            <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-widest bg-gradient-to-r from-accent-purple to-accent-blue text-black">
+                            <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-gradient-to-r from-accent-purple to-accent-blue text-black">
                               <Sparkles className="w-3 h-3" /> Flagship Project
                             </span>
                           )}
-                          <span className="text-[10px] uppercase tracking-widest text-primary-light/50 font-semibold font-outfit">
+                          <span className="text-xs uppercase tracking-widest text-primary-light/70 font-semibold font-outfit">
                             {project.subtitle}
                           </span>
                         </div>
@@ -359,7 +359,7 @@ export const WorkScreen: React.FC = () => {
                           {project.title}
                         </h3>
 
-                        <p className="text-xs md:text-sm text-primary-light/75 font-outfit leading-relaxed mb-6">
+                        <p className="text-xs md:text-sm text-primary-light/70 font-outfit leading-relaxed mb-6">
                           {project.description}
                         </p>
 
@@ -379,7 +379,7 @@ export const WorkScreen: React.FC = () => {
                         {project.tech.map((t, tIdx) => (
                           <span
                             key={tIdx}
-                            className="px-2.5 py-1 rounded-lg bg-white/[0.03] border border-white/[0.06] text-[11px] text-white/80 font-medium"
+                            className="px-2.5 py-1 rounded-lg bg-white/[0.03] border border-white/[0.06] text-xs text-white/80 font-medium"
                           >
                             {t}
                           </span>
@@ -405,7 +405,7 @@ export const WorkScreen: React.FC = () => {
                             href={project.github}
                             target="_blank"
                             rel="noreferrer"
-                            className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-semibold uppercase tracking-wider bg-white/[0.04] text-white hover:bg-white/[0.08] border border-white/[0.08] transition-all"
+                            className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-semibold tracking-wide bg-white/[0.04] text-white hover:bg-white/[0.08] border border-white/[0.08] transition-all"
                           >
                             <Github className="w-4 h-4" />
                             GitHub Code
@@ -417,7 +417,7 @@ export const WorkScreen: React.FC = () => {
                             href={project.live}
                             target={project.live.startsWith('http') ? '_blank' : '_self'}
                             rel="noreferrer"
-                            className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-semibold uppercase tracking-wider bg-gradient-to-r from-accent-purple to-accent-blue text-black hover:opacity-95 transition-all"
+                            className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-semibold tracking-wide bg-gradient-to-r from-accent-purple to-accent-blue text-black hover:opacity-95 transition-all"
                           >
                             {project.liveText}
                             <ArrowUpRight className="w-4 h-4" />

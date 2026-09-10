@@ -20,7 +20,7 @@ export const App: React.FC = () => {
     }
     metaDesc.setAttribute(
       'content',
-      'Professional portfolio of Gollapalli Srinivas Deepak (SD) — Android Developer & CS (AI-ML) Undergrad specializing in Kotlin, Java, Jetpack Compose, Clean Architecture, Fintech Applications, and Biometric Integrations.'
+      'Professional portfolio of Gollapalli Srinivas Deepak (SD) — Android Developer & CS (AI-ML) Graduate specializing in Kotlin, Java, Jetpack Compose, Firebase, REST APIs, and AI-ML Applications.'
     );
   }, []);
 

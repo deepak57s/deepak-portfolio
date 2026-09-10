@@ -22,9 +22,9 @@ export const HeroSection: React.FC = () => {
         {/* Left Side: Typography */}
         <div className="lg:col-span-7 flex flex-col items-start text-left order-2 lg:order-1">
           {/* Creative Specialization Pill */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-accent-blue mb-6 backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-semibold uppercase tracking-[0.2em] text-accent-blue mb-6 backdrop-blur-sm">
             <span className="w-2 h-2 rounded-full bg-accent-blue animate-pulse" />
-            Android Developer &bull; AI-ML Undergrad
+            Android Developer &bull; AI-ML Graduate
           </div>
 
           {/* Main Display Title */}
@@ -40,8 +40,8 @@ export const HeroSection: React.FC = () => {
           </h1>
 
           {/* Resume-Accurate Subtitle Description */}
-          <p className="text-primary-light/75 text-base md:text-lg max-w-xl mb-8 leading-relaxed font-outfit">
-            Android Developer and Computer Science undergraduate (AI-ML) with hands-on industry experience building and testing native Android applications using <span className="text-white font-medium">Kotlin, Java, and Jetpack Compose</span>. Skilled in <span className="text-accent-blue">Clean Architecture (MVVM/MVI)</span>, Firebase, REST APIs, and secure biometric authentication.
+          <p className="text-primary-light/70 text-base md:text-lg max-w-xl mb-8 leading-relaxed font-outfit">
+            Computer Science (AI-ML) graduate with experience in developing native Android applications using <span className="text-white font-medium">Kotlin, Java, and Jetpack Compose</span>. Skilled in creating mobile UI and UX and maintaining the backend data flow for android apps. Proficient in developing AI applications using <span className="text-accent-blue">Python, scikit-learn, NLP, and Transformers</span>, with experience in multi-agent processing, semantic scoring, and REST API implementation.
           </p>
 
           {/* CTA Buttons linking to Screen 3 (Work) and Screen 4 (Contact) */}
@@ -68,7 +68,7 @@ export const HeroSection: React.FC = () => {
 
           {/* Micro Social Indicators */}
           <div className="flex items-center gap-4 border-t border-white/[0.06] pt-6 w-full max-w-md">
-            <span className="text-[10px] uppercase tracking-widest text-primary-light/50">
+            <span className="text-xs uppercase tracking-widest text-primary-light/50">
               Connect Online
             </span>
             <div className="h-[1px] flex-1 bg-white/[0.06]" />

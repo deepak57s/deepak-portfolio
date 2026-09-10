@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Cpu, Layers, Zap, Star, Shield, Boxes } from 'lucide-react';
+import { Cpu, Layers, Zap, Star, Shield } from 'lucide-react';
 import {
   PythonIcon,
   AndroidIcon,
@@ -160,7 +160,7 @@ export const MarqueeSection: React.FC = () => {
   ];
 
   const row2 = [
-    { text: 'SAP MM & P2P Cycles', icon: Boxes, color: 'text-[#38BDF8]' },
+    { text: 'Micro ATM Systems', icon: Zap, color: 'text-[#38BDF8]' },
     { text: 'Fintech Banking UI', icon: Zap, color: 'text-[#34D399]' },
     { text: 'Aadhaar Biometric Auth', icon: Shield, color: 'text-accent-purple' },
     { text: 'Git & Version Control', icon: GitIcon, color: 'text-[#F05032]' },
@@ -213,7 +213,7 @@ export const MarqueeSection: React.FC = () => {
       </div>
 
       {/* Interactive Drag Hint */}
-      <div className="flex items-center justify-center gap-3 text-[10px] md:text-xs font-semibold uppercase tracking-[0.2em] text-primary-light/40 select-none mt-2">
+      <div className="flex items-center justify-center gap-3 text-xs font-medium text-primary-light/70 select-none mt-2">
         <motion.span
           animate={{ x: [-3, 3, -3] }}
           transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}

@@ -58,12 +58,12 @@ export const ContactSection: React.FC = () => {
 
           {/* Left Column: Context Card */}
           <div className="lg:col-span-5 flex flex-col items-start text-left">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-blue mb-6">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-semibold uppercase tracking-[0.2em] text-accent-blue mb-6">
               <Sparkles className="w-4 h-4 text-accent-blue" />
               Get In Touch
             </div>
 
-            <h2 className="text-4xl md:text-5xl font-extrabold font-kanit uppercase italic text-white mb-6 leading-tight pr-4">
+            <h2 className="text-4xl md:text-5xl font-extrabold font-kanit italic text-white mb-6 leading-tight pr-4">
               Let's Build <span className="inline-block pr-4 pb-1 text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-accent-purple">Together</span>
             </h2>
 
@@ -78,9 +78,9 @@ export const ContactSection: React.FC = () => {
                   <Mail className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="text-[10px] text-primary-light/40 font-bold uppercase tracking-widest">
+                  <h3 className="text-xs text-primary-light/70 font-semibold uppercase tracking-wider">
                     Direct Email
-                  </h4>
+                  </h3>
                   <a
                     href="mailto:deepakparker222@gmail.com"
                     className="text-xs font-bold text-white hover:text-accent-blue transition-colors"
@@ -95,9 +95,9 @@ export const ContactSection: React.FC = () => {
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="text-[10px] text-primary-light/40 font-bold uppercase tracking-widest">
+                  <h3 className="text-xs text-primary-light/70 font-semibold uppercase tracking-wider">
                     Location
-                  </h4>
+                  </h3>
                   <p className="text-xs font-bold text-white">
                     Visakhapatnam, Andhra Pradesh, India
                   </p>
@@ -109,9 +109,9 @@ export const ContactSection: React.FC = () => {
                   <Calendar className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="text-[10px] text-primary-light/40 font-bold uppercase tracking-widest">
+                  <h3 className="text-xs text-primary-light/70 font-semibold uppercase tracking-wider">
                     Availability
-                  </h4>
+                  </h3>
                   <p className="text-xs font-bold text-white flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-accent-emerald animate-pulse" />
                     Open for Engineering Roles & Projects
@@ -123,7 +123,7 @@ export const ContactSection: React.FC = () => {
 
           {/* Right Column: Contact Form */}
           <div className="lg:col-span-7 w-full">
-            <div className="glass-panel p-8 md:p-12 rounded-[32px] border border-white/[0.06] relative">
+            <div className="glass-panel p-8 md:p-12 rounded-3xl border border-white/[0.06] relative">
 
               {status === 'success' ? (
                 <div className="py-16 flex flex-col items-center justify-center text-center animate-fadeIn">
@@ -141,7 +141,7 @@ export const ContactSection: React.FC = () => {
                 <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                   {/* Name Input */}
                   <div className="flex flex-col gap-2 items-start text-left">
-                    <label className="text-[10px] uppercase font-bold tracking-widest text-primary-light/50">
+                    <label className="text-xs uppercase font-semibold tracking-wider text-primary-light/70">
                       Your Name / Organization
                     </label>
                     <input
@@ -156,7 +156,7 @@ export const ContactSection: React.FC = () => {
 
                   {/* Email Input */}
                   <div className="flex flex-col gap-2 items-start text-left">
-                    <label className="text-[10px] uppercase font-bold tracking-widest text-primary-light/50">
+                    <label className="text-xs uppercase font-semibold tracking-wider text-primary-light/70">
                       Your Email Address
                     </label>
                     <input
@@ -171,7 +171,7 @@ export const ContactSection: React.FC = () => {
 
                   {/* Message Input */}
                   <div className="flex flex-col gap-2 items-start text-left">
-                    <label className="text-[10px] uppercase font-bold tracking-widest text-primary-light/50">
+                    <label className="text-xs uppercase font-semibold tracking-wider text-primary-light/70">
                       Project Details / Opportunity
                     </label>
                     <textarea
@@ -212,15 +212,15 @@ export const ContactSection: React.FC = () => {
         {/* Global Footer */}
         <div className="border-t border-white/[0.06] mt-24 pt-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-left">
-            <h3 className="text-sm font-bold font-kanit text-white tracking-widest uppercase mb-1">
-              SRINIVAS DEEPAK <span className="text-accent-blue">&bull;</span> ANDROID DEVELOPER
+            <h3 className="text-sm font-bold font-kanit text-white tracking-wider mb-1">
+              Srinivas Deepak <span className="text-accent-blue">&bull;</span> Android Developer
             </h3>
-            <p className="text-[11px] text-primary-light/50 tracking-wider">
+            <p className="text-xs text-primary-light/70 tracking-wider">
               B.Tech CSE (AI-ML) &bull; Native Android &bull; Clean Architecture &bull; Fintech Systems
             </p>
           </div>
 
-          <p className="text-[11px] text-primary-light/40 font-medium tracking-wider">
+          <p className="text-xs text-primary-light/50 font-medium tracking-wider">
             &copy; {new Date().getFullYear()} Srinivas Deepak. All rights reserved.
           </p>
 

@@ -48,7 +48,7 @@ export const AboutSection: React.FC = () => {
             Engineering Profile
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 font-kanit uppercase italic text-white leading-tight pr-4">
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 font-kanit italic text-white leading-tight pr-4">
             Engineering Rigor
             <br />
             <span className="inline-block pr-4 pb-1 text-transparent bg-clip-text bg-gradient-to-r from-accent-purple via-accent-blue to-accent-emerald">
@@ -73,9 +73,9 @@ export const AboutSection: React.FC = () => {
                 <div className="min-w-0">
                   <div className="flex items-baseline gap-2">
                     <span className="text-sm font-bold text-white tracking-wide">{stat.value}</span>
-                    <span className="text-[10px] text-primary-light/50 font-medium uppercase truncate">{stat.label}</span>
+                    <span className="text-xs text-primary-light/70 font-medium truncate">{stat.label}</span>
                   </div>
-                  <p className="text-[11px] text-primary-light/40 truncate">{stat.subtitle}</p>
+                  <p className="text-xs text-primary-light/70 truncate">{stat.subtitle}</p>
                 </div>
               </div>
             ))}
@@ -90,12 +90,12 @@ export const AboutSection: React.FC = () => {
             <div className="absolute top-0 left-0 w-[1px] h-8 bg-accent-purple" />
 
             <AnimatedText
-              text="Android Developer and Computer Science undergraduate specializing in AI-ML with hands-on industry experience at Saranda Software. Experienced in building and testing native Android applications using Kotlin, Java, and Jetpack Compose under Clean Architecture. Skilled in fintech transaction workflows, Aadhaar biometric authentication via UIDAI RD Services, Firebase Cloud Platform, and scalable REST API integrations."
+              text="Computer Science (AI-ML) graduate with hands-on industry experience building native Android applications using Kotlin, Java, and Jetpack Compose—crafting intuitive user experiences, responsive layouts, working with Firebase, and handling real-time API requests and responses smoothly in the UI. Experienced in developing AI applications using Python, scikit-learn, NLP, and Transformer-based models, exploring multi-agent workflows, semantic scoring systems, and LLM tools. Finalist in a state-level innovation competition, with a practical approach to solving problems and building maintainable applications."
               className="text-lg md:text-xl lg:text-2xl font-medium font-outfit leading-relaxed tracking-wide text-primary-light/90"
             />
           </div>
 
-          {/* Internal Screen Jump Navigation Connectors */}
+          {/* Internal Section Jump Navigation Connectors */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Magnet range={30} strength={0.2}>
               <a
@@ -103,11 +103,11 @@ export const AboutSection: React.FC = () => {
                 className="group p-5 rounded-2xl glass border border-white/[0.06] hover:border-accent-purple/30 hover:bg-accent-purple/[0.03] transition-all flex flex-col justify-between"
               >
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-[10px] uppercase tracking-widest text-accent-purple font-semibold">Screen 02</span>
+                  <span className="text-xs uppercase tracking-widest text-accent-purple font-semibold">Section 02</span>
                   <ArrowRight className="w-4 h-4 text-accent-purple group-hover:translate-x-1 transition-transform" />
                 </div>
-                <h4 className="text-white font-bold text-sm tracking-wide mb-1">Education, Skills & Certifications</h4>
-                <p className="text-primary-light/50 text-xs">Explore academic credentials, tech stack & verified certifications &rarr;</p>
+                <h3 className="text-white font-bold text-sm tracking-wide mb-1">Education, Skills & Certifications</h3>
+                <p className="text-primary-light/70 text-xs">Explore academic credentials, tech stack & verified certifications &rarr;</p>
               </a>
             </Magnet>
 
@@ -117,11 +117,11 @@ export const AboutSection: React.FC = () => {
                 className="group p-5 rounded-2xl glass border border-white/[0.06] hover:border-accent-blue/30 hover:bg-accent-blue/[0.03] transition-all flex flex-col justify-between"
               >
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-[10px] uppercase tracking-widest text-accent-blue font-semibold">Screen 03</span>
+                  <span className="text-xs uppercase tracking-widest text-accent-blue font-semibold">Section 03</span>
                   <ArrowRight className="w-4 h-4 text-accent-blue group-hover:translate-x-1 transition-transform" />
                 </div>
-                <h4 className="text-white font-bold text-sm tracking-wide mb-1">Experience & Featured Works</h4>
-                <p className="text-primary-light/50 text-xs">Dive into Saranda Software, Micro ATM (MATM), and AI projects &rarr;</p>
+                <h3 className="text-white font-bold text-sm tracking-wide mb-1">Experience & Featured Works</h3>
+                <p className="text-primary-light/70 text-xs">Dive into Saranda Software, Micro ATM (MATM), and AI projects &rarr;</p>
               </a>
             </Magnet>
           </div>
