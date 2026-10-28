@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, ArrowUpRight, Shield, Sparkles, CheckCircle2, Layers, Smartphone } from 'lucide-react';
+import {
+  BasilBag,
+  BasilArrowUpRight,
+  BasilShield,
+  BasilDiamond,
+  BasilCheck,
+  BasilStack,
+  BasilMobilePhone,
+  BasilGithub
+} from '../components/BasilIcons';
 import Magnet from '../components/Magnet';
-import { KotlinIcon, JavaIcon, AndroidIcon, FirebaseIcon, GitIcon, Github } from '../components/Icons';
+import { KotlinIcon, JavaIcon, AndroidIcon, FirebaseIcon, GitIcon } from '../components/Icons';
 
 // Images from assets
 import nexusImg from '../assets/project_nexus.jpeg';
@@ -10,6 +19,7 @@ import resumeImg from '../assets/project_resume.png';
 import portfolioImg from '../assets/project_portfolio.png';
 import microAtmImg from '../assets/project_micro_atm.jpeg';
 import horizonImg from '../assets/project_horizon.png';
+import lmsImg from '../assets/project_lms.png';
 
 export const WorkScreen: React.FC = () => {
   const [activeProjectFilter, setActiveProjectFilter] = useState<'all' | 'android' | 'ai' | 'web'>('all');
@@ -36,10 +46,10 @@ export const WorkScreen: React.FC = () => {
         { name: 'Java', icon: JavaIcon },
         { name: 'Kotlin', icon: KotlinIcon },
         { name: 'Android SDK', icon: AndroidIcon },
-        { name: 'Fintech ', icon: Shield },
-        { name: 'UIDAI Biometrics', icon: Shield },
+        { name: 'Fintech ', icon: BasilShield },
+        { name: 'UIDAI Biometrics', icon: BasilShield },
         { name: 'Firebase', icon: FirebaseIcon },
-        { name: 'Micro Atm', icon: Layers },
+        { name: 'Micro Atm', icon: BasilStack },
       ],
       accentColor: 'border-accent-blue/30 bg-accent-blue/5 text-accent-blue',
     },
@@ -59,10 +69,10 @@ export const WorkScreen: React.FC = () => {
         'Practiced Git version control, structured code commits, and collaborative remote code review workflows.',
       ],
       techStack: [
-        { name: 'HTML5 / CSS3', icon: Layers },
-        { name: 'JavaScript ES6+', icon: Layers },
+        { name: 'HTML5 / CSS3', icon: BasilStack },
+        { name: 'JavaScript ES6+', icon: BasilStack },
         { name: 'Git & GitHub', icon: GitIcon },
-        { name: 'Responsive Design', icon: Layers },
+        { name: 'Responsive Design', icon: BasilStack },
       ],
       accentColor: 'border-accent-purple/30 bg-accent-purple/5 text-accent-purple',
     },
@@ -70,6 +80,26 @@ export const WorkScreen: React.FC = () => {
 
   // Project Showcase
   const projects = [
+    {
+      id: 'lms-assessment-platform',
+      category: 'web',
+      title: 'Full-Stack LMS & Anti-Tampering Assessment Platform',
+      subtitle: 'FastAPI, Next.js 16, Redux Toolkit & MongoDB Atlas',
+      flagship: true,
+      image: lmsImg,
+      description:
+        'Engineered an enterprise-grade Learning Management System & high-concurrency online assessment platform. Implemented zero-leak answer masking (correct answers stripped server-side prior to client dispatch), server-side asynchronous grading via Motor/MongoDB, atomic single-submission locking, and stateless JWT Bearer authorization.',
+      features: [
+        'Zero-leak answer masking & server-side assessment evaluation',
+        'Single-submission lock preventing double-submit race conditions',
+        'Stateless JWT authentication with salted bcrypt password hashing',
+        'Real-time Redux state synchronization & dynamic exam generation',
+      ],
+      tech: ['FastAPI', 'Python', 'Next.js 16', 'React 19', 'MongoDB Atlas', 'Redux Toolkit', 'Tailwind CSS v4', 'JWT Auth'],
+      github: 'https://github.com/deepak57s/LMS-application',
+      live: 'https://github.com/deepak57s/LMS-application',
+      liveText: 'Explore System',
+    },
     {
       id: 'micro-atm-matm',
       category: 'android',
@@ -194,7 +224,7 @@ export const WorkScreen: React.FC = () => {
         <div className="flex flex-col gap-10">
           <div className="flex flex-col items-start text-left max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-semibold uppercase tracking-[0.2em] text-accent-blue mb-4">
-              <Briefcase className="w-3.5 h-3.5 text-accent-blue" />
+              <BasilBag className="w-3.5 h-3.5 text-accent-blue" />
               Industry Experience
             </div>
             <h2 className="text-3xl md:text-5xl font-extrabold font-kanit italic text-white tracking-tight">
@@ -254,7 +284,7 @@ export const WorkScreen: React.FC = () => {
                   <div className="space-y-3 mb-8">
                     {exp.keyContributions.map((bullet, bIdx) => (
                       <div key={bIdx} className="flex items-start gap-3 text-xs md:text-sm text-primary-light/70 font-outfit leading-relaxed">
-                        <CheckCircle2 className="w-4 h-4 text-accent-emerald flex-shrink-0 mt-1" />
+                        <BasilCheck className="w-4 h-4 text-accent-emerald flex-shrink-0 mt-1" />
                         <span>{bullet}</span>
                       </div>
                     ))}
@@ -288,7 +318,7 @@ export const WorkScreen: React.FC = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="flex flex-col items-start text-left max-w-2xl">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-semibold uppercase tracking-[0.2em] text-accent-purple mb-4">
-                <Smartphone className="w-3.5 h-3.5 text-accent-purple" />
+                <BasilMobilePhone className="w-3.5 h-3.5 text-accent-purple" />
                 Featured Portfolio
               </div>
               <h2 className="text-3xl md:text-5xl font-extrabold font-kanit italic text-white tracking-tight">
@@ -347,7 +377,7 @@ export const WorkScreen: React.FC = () => {
                         <div className="flex items-center gap-3 mb-3">
                           {project.flagship && (
                             <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-gradient-to-r from-accent-purple to-accent-blue text-black">
-                              <Sparkles className="w-3 h-3" /> Flagship Project
+                              <BasilDiamond className="w-3 h-3" /> Flagship Project
                             </span>
                           )}
                           <span className="text-xs uppercase tracking-widest text-primary-light/70 font-semibold font-outfit">
@@ -367,7 +397,7 @@ export const WorkScreen: React.FC = () => {
                         <div className="space-y-2 mb-6">
                           {project.features.map((feat, fIdx) => (
                             <div key={fIdx} className="flex items-start gap-2.5 text-xs text-primary-light/70 font-outfit">
-                              <CheckCircle2 className="w-3.5 h-3.5 text-accent-emerald flex-shrink-0 mt-0.5" />
+                              <BasilCheck className="w-3.5 h-3.5 text-accent-emerald flex-shrink-0 mt-0.5" />
                               <span>{feat}</span>
                             </div>
                           ))}
@@ -407,7 +437,7 @@ export const WorkScreen: React.FC = () => {
                             rel="noreferrer"
                             className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-semibold tracking-wide bg-white/[0.04] text-white hover:bg-white/[0.08] border border-white/[0.08] transition-all"
                           >
-                            <Github className="w-4 h-4" />
+                            <BasilGithub className="w-4 h-4" />
                             GitHub Code
                           </a>
                         </Magnet>
@@ -420,7 +450,7 @@ export const WorkScreen: React.FC = () => {
                             className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-semibold tracking-wide bg-gradient-to-r from-accent-purple to-accent-blue text-black hover:opacity-95 transition-all"
                           >
                             {project.liveText}
-                            <ArrowUpRight className="w-4 h-4" />
+                            <BasilArrowUpRight className="w-4 h-4" />
                           </a>
                         </Magnet>
                       </div>
@@ -439,3 +469,4 @@ export const WorkScreen: React.FC = () => {
 };
 
 export default WorkScreen;
+

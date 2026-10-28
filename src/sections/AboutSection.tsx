@@ -1,15 +1,15 @@
 import React from 'react';
 import AnimatedText from '../components/AnimatedText';
 import Magnet from '../components/Magnet';
-import { GraduationCap, Briefcase, Award, Shield, ArrowRight } from 'lucide-react';
+import { BasilUniversity, BasilBag, BasilAward, BasilShield, BasilArrowRight } from '../components/BasilIcons';
 import DotField from '../components/DotField';
 
 export const AboutSection: React.FC = () => {
   const stats = [
-    { label: 'B.Tech CSE (AI-ML)', value: '8.53 CGPA', subtitle: 'Raghu Institute of Technology', icon: GraduationCap, color: 'bg-accent-purple/10 text-accent-purple' },
-    { label: 'Android Industry Experience', value: '8+ Months', subtitle: 'Saranda Software Pvt. Ltd.', icon: Briefcase, color: 'bg-accent-blue/10 text-accent-blue' },
-    { label: 'Intermediate (MPC)', value: '95.2%', subtitle: 'Sasi Junior College', icon: Award, color: 'bg-accent-emerald/10 text-accent-emerald' },
-    { label: 'Architecture & Security', value: 'Clean MVVM/MVI', subtitle: 'Biometrics & Secure Transactions', icon: Shield, color: 'bg-accent-orange/10 text-accent-orange' },
+    { label: 'B.Tech CSE (AI-ML)', value: '8.53 CGPA', subtitle: 'Raghu Institute of Technology', icon: BasilUniversity, color: 'bg-accent-purple/10 text-accent-purple' },
+    { label: 'Android Industry Experience', value: '8+ Months', subtitle: 'Saranda Software Pvt. Ltd.', icon: BasilBag, color: 'bg-accent-blue/10 text-accent-blue' },
+    { label: 'Intermediate (MPC)', value: '95.2%', subtitle: 'Sasi Junior College', icon: BasilAward, color: 'bg-accent-emerald/10 text-accent-emerald' },
+    { label: 'Architecture & Security', value: 'Clean MVVM/MVI', subtitle: 'Biometrics & Secure Transactions', icon: BasilShield, color: 'bg-accent-orange/10 text-accent-orange' },
   ];
 
   return (
@@ -104,7 +104,7 @@ export const AboutSection: React.FC = () => {
               >
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-xs uppercase tracking-widest text-accent-purple font-semibold">Section 02</span>
-                  <ArrowRight className="w-4 h-4 text-accent-purple group-hover:translate-x-1 transition-transform" />
+                  <BasilArrowRight className="w-4 h-4 text-accent-purple group-hover:translate-x-1 transition-transform" />
                 </div>
                 <h3 className="text-white font-bold text-sm tracking-wide mb-1">Education, Skills & Certifications</h3>
                 <p className="text-primary-light/70 text-xs">Explore academic credentials, tech stack & verified certifications &rarr;</p>
@@ -118,7 +118,7 @@ export const AboutSection: React.FC = () => {
               >
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-xs uppercase tracking-widest text-accent-blue font-semibold">Section 03</span>
-                  <ArrowRight className="w-4 h-4 text-accent-blue group-hover:translate-x-1 transition-transform" />
+                  <BasilArrowRight className="w-4 h-4 text-accent-blue group-hover:translate-x-1 transition-transform" />
                 </div>
                 <h3 className="text-white font-bold text-sm tracking-wide mb-1">Experience & Featured Works</h3>
                 <p className="text-primary-light/70 text-xs">Dive into Saranda Software, Micro ATM (MATM), and AI projects &rarr;</p>

@@ -1,17 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
-  GraduationCap,
-  Award,
-  CheckCircle2,
-  ExternalLink,
-  Sparkles,
-  Code2,
-  Smartphone,
-  Wrench,
-  ShieldCheck,
-  HeartHandshake
-} from 'lucide-react';
+  BasilUniversity,
+  BasilAward,
+  BasilCheck,
+  BasilArrowUpRight,
+  BasilDiamond,
+  BasilDesktop,
+  BasilMobilePhone,
+  BasilSettings,
+  BasilCheckedBox,
+  BasilUser
+} from '../components/BasilIcons';
 import {
   KotlinIcon,
   JavaIcon,
@@ -64,7 +64,7 @@ export const BackgroundScreen: React.FC = () => {
     {
       id: 'languages',
       title: 'Programming Languages',
-      icon: Code2,
+      icon: BasilDesktop,
       description: 'Core languages for native mobile, algorithmic logic, and backend processing',
       skills: [
         { name: 'Kotlin', level: 'Advanced / Production', icon: KotlinIcon, color: 'text-[#A855F7]' },
@@ -77,7 +77,7 @@ export const BackgroundScreen: React.FC = () => {
     {
       id: 'mobile',
       title: 'Mobile Applications & Frameworks',
-      icon: Smartphone,
+      icon: BasilMobilePhone,
       description: 'Native Android ecosystem, reactive UI, and backend services',
       skills: [
         { name: 'Android SDK', level: 'Core Native', icon: AndroidIcon, color: 'text-[#3DDC84]' },
@@ -85,41 +85,41 @@ export const BackgroundScreen: React.FC = () => {
         { name: 'Android Studio', level: 'Primary IDE & Profiler', icon: AndroidIcon, color: 'text-[#3DDC84]' },
         { name: 'Firebase & Firestore', level: 'Realtime / Auth / FCM', icon: FirebaseIcon, color: 'text-[#FFCA28]' },
         { name: 'React Native', level: 'Cross-Platform UI', icon: ReactIcon, color: 'text-[#61DAFB]' },
-        { name: 'REST APIs Handling', level: 'Network Architecture', icon: Code2, color: 'text-[#F43F5E]' },
+        { name: 'REST APIs Handling', level: 'Network Architecture', icon: BasilDesktop, color: 'text-[#F43F5E]' },
       ],
     },
     {
       id: 'tools',
       title: 'Developer Tools & Platforms',
-      icon: Wrench,
+      icon: BasilSettings,
       description: 'Modern development workflow, testing, version control, and design',
       skills: [
         { name: 'Git', level: 'Version Control', icon: GitIcon, color: 'text-[#F05032]' },
-        { name: 'GitHub', level: 'CI/CD & Collaboration', icon: Code2, color: 'text-white' },
+        { name: 'GitHub', level: 'CI/CD & Collaboration', icon: BasilDesktop, color: 'text-white' },
         { name: 'Postman', level: 'API Testing & Mocking', icon: PostmanIcon, color: 'text-[#FF6C37]' },
       ],
     },
     {
       id: 'practices',
       title: 'Practices & Architecture',
-      icon: ShieldCheck,
+      icon: BasilCheckedBox,
       description: 'Enterprise architecture patterns, security compliance, and engineering discipline',
       skills: [
-        { name: 'Architecture (MVVM/MVI)', level: 'Domain/Data/UI Separation', icon: ShieldCheck, color: 'text-accent-blue' },
-        { name: 'Fintech Transaction Workflows', level: 'Secure Banking Modules', icon: ShieldCheck, color: 'text-accent-emerald' },
-        { name: 'Responsive Web & Mobile Design', level: 'Multi-Device Layouts', icon: ShieldCheck, color: 'text-accent-blue' },
+        { name: 'Architecture (MVVM/MVI)', level: 'Domain/Data/UI Separation', icon: BasilCheckedBox, color: 'text-accent-blue' },
+        { name: 'Fintech Transaction Workflows', level: 'Secure Banking Modules', icon: BasilCheckedBox, color: 'text-accent-emerald' },
+        { name: 'Responsive Web & Mobile Design', level: 'Multi-Device Layouts', icon: BasilCheckedBox, color: 'text-accent-blue' },
       ],
     },
     {
       id: 'softskills',
       title: 'Soft Skills',
-      icon: HeartHandshake,
+      icon: BasilUser,
       description: 'Interpersonal capabilities, collaborative mindset, and structured problem-solving',
       skills: [
-        { name: 'Analytical Problem Solving', level: 'Algorithmic Optimization', icon: HeartHandshake, color: 'text-accent-purple' },
-        { name: 'Team Coordination', level: 'Agile Collaboration', icon: HeartHandshake, color: 'text-accent-blue' },
-        { name: 'Critical Thinking & Debugging', level: 'Root Cause Resolution', icon: HeartHandshake, color: 'text-accent-emerald' },
-        { name: 'Technical Documentation', level: 'classified work presentation', icon: HeartHandshake, color: 'text-accent-orange' },
+        { name: 'Analytical Problem Solving', level: 'Algorithmic Optimization', icon: BasilUser, color: 'text-accent-purple' },
+        { name: 'Team Coordination', level: 'Agile Collaboration', icon: BasilUser, color: 'text-accent-blue' },
+        { name: 'Critical Thinking & Debugging', level: 'Root Cause Resolution', icon: BasilUser, color: 'text-accent-emerald' },
+        { name: 'Technical Documentation', level: 'classified work presentation', icon: BasilUser, color: 'text-accent-orange' },
       ],
     },
   ];
@@ -163,7 +163,7 @@ export const BackgroundScreen: React.FC = () => {
       category: 'AI & Data Ethics',
       description: 'Explores the ethical implications of Large Language Models and AI deployment, including transparency, bias mitigation, accountability, and privacy.',
       link: 'https://www.linkedin.com/learning/certificates/1ee3dd1532a2182fef409e9cc56fcb59219df2975b9fb4dbac587dc8384f11f',
-      icon: Award,
+      icon: BasilAward,
       badgeColor: 'text-[#34D399] border-[#34D399]/30 bg-[#34D399]/10',
     },
     {
@@ -195,7 +195,7 @@ export const BackgroundScreen: React.FC = () => {
         <div className="flex flex-col gap-10">
           <div className="flex flex-col items-start text-left max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-semibold uppercase tracking-[0.2em] text-accent-purple mb-4">
-              <GraduationCap className="w-3.5 h-3.5 text-accent-purple" />
+              <BasilUniversity className="w-3.5 h-3.5 text-accent-purple" />
               Academic Foundation
             </div>
             <h2 className="text-3xl md:text-5xl font-extrabold font-kanit italic text-white tracking-tight">
@@ -230,7 +230,7 @@ export const BackgroundScreen: React.FC = () => {
                       {edu.duration}
                     </span>
                     <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border bg-gradient-to-r ${edu.badgeColor}`}>
-                      <Sparkles className="w-3 h-3" />
+                      <BasilDiamond className="w-3 h-3" />
                       {edu.grade}
                     </div>
                   </div>
@@ -248,7 +248,7 @@ export const BackgroundScreen: React.FC = () => {
                   <ul className="space-y-2.5 mb-6">
                     {edu.highlights.map((point, pIdx) => (
                       <li key={pIdx} className="flex items-start gap-2.5 text-xs md:text-sm text-primary-light/70 font-outfit leading-relaxed">
-                        <CheckCircle2 className="w-4 h-4 text-accent-emerald flex-shrink-0 mt-0.5" />
+                        <BasilCheck className="w-4 h-4 text-accent-emerald flex-shrink-0 mt-0.5" />
                         <span>{point}</span>
                       </li>
                     ))}
@@ -270,7 +270,7 @@ export const BackgroundScreen: React.FC = () => {
         <div className="flex flex-col gap-10">
           <div className="flex flex-col items-start text-left max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-semibold uppercase tracking-[0.2em] text-accent-blue mb-4">
-              <Code2 className="w-3.5 h-3.5 text-accent-blue" />
+              <BasilDesktop className="w-3.5 h-3.5 text-accent-blue" />
               Technical Arsenal
             </div>
             <h2 className="text-3xl md:text-5xl font-extrabold font-kanit italic text-white tracking-tight">
@@ -342,7 +342,7 @@ export const BackgroundScreen: React.FC = () => {
         <div className="flex flex-col gap-10">
           <div className="flex flex-col items-start text-left max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-semibold uppercase tracking-[0.2em] text-accent-emerald mb-4">
-              <Award className="w-3.5 h-3.5 text-accent-emerald" />
+              <BasilAward className="w-3.5 h-3.5 text-accent-emerald" />
               Verified Industry Milestones
             </div>
             <h2 className="text-3xl md:text-5xl font-extrabold font-kanit italic text-white tracking-tight">
@@ -403,7 +403,7 @@ export const BackgroundScreen: React.FC = () => {
                       >
                         <span className="inline-flex items-center gap-1.5">
                           Verify
-                          <ExternalLink className="w-3 h-3" />
+                          <BasilArrowUpRight className="w-3 h-3" />
                         </span>
                       </CreepyButton>
                     ) : (
@@ -413,7 +413,7 @@ export const BackgroundScreen: React.FC = () => {
                       >
                         <span className="inline-flex items-center gap-1.5">
                           Verify
-                          <ExternalLink className="w-3 h-3" />
+                          <BasilArrowUpRight className="w-3 h-3" />
                         </span>
                       </CandyButton>
                     )}

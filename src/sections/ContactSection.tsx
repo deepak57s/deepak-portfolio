@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Send, Mail, MapPin, Calendar, Sparkles, CheckCircle2 } from 'lucide-react';
-import { Github, Linkedin } from '../components/Icons';
+import { BasilSend, BasilEnvelope, BasilLocation, BasilCalendar, BasilDiamond, BasilCheck, BasilGithub, BasilLinkedin } from '../components/BasilIcons';
+
 import Magnet from '../components/Magnet';
 import DotField from '../components/DotField';
 
@@ -59,7 +59,7 @@ export const ContactSection: React.FC = () => {
           {/* Left Column: Context Card */}
           <div className="lg:col-span-5 flex flex-col items-start text-left">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-semibold uppercase tracking-[0.2em] text-accent-blue mb-6">
-              <Sparkles className="w-4 h-4 text-accent-blue" />
+              <BasilDiamond className="w-4 h-4 text-accent-blue" />
               Get In Touch
             </div>
 
@@ -75,7 +75,7 @@ export const ContactSection: React.FC = () => {
             <div className="flex flex-col gap-5 w-full max-w-sm mb-8">
               <div className="flex items-center gap-4 p-3.5 rounded-2xl glass border border-white/[0.04] hover:border-white/[0.1] transition-all">
                 <div className="p-3 rounded-xl bg-accent-blue/10 text-accent-blue">
-                  <Mail className="w-4 h-4" />
+                  <BasilEnvelope className="w-4 h-4" />
                 </div>
                 <div>
                   <h3 className="text-xs text-primary-light/70 font-semibold uppercase tracking-wider">
@@ -92,7 +92,7 @@ export const ContactSection: React.FC = () => {
 
               <div className="flex items-center gap-4 p-3.5 rounded-2xl glass border border-white/[0.04] hover:border-white/[0.1] transition-all">
                 <div className="p-3 rounded-xl bg-accent-emerald/10 text-accent-emerald">
-                  <MapPin className="w-4 h-4" />
+                  <BasilLocation className="w-4 h-4" />
                 </div>
                 <div>
                   <h3 className="text-xs text-primary-light/70 font-semibold uppercase tracking-wider">
@@ -106,7 +106,7 @@ export const ContactSection: React.FC = () => {
 
               <div className="flex items-center gap-4 p-3.5 rounded-2xl glass border border-white/[0.04] hover:border-white/[0.1] transition-all">
                 <div className="p-3 rounded-xl bg-accent-purple/10 text-accent-purple">
-                  <Calendar className="w-4 h-4" />
+                  <BasilCalendar className="w-4 h-4" />
                 </div>
                 <div>
                   <h3 className="text-xs text-primary-light/70 font-semibold uppercase tracking-wider">
@@ -128,7 +128,7 @@ export const ContactSection: React.FC = () => {
               {status === 'success' ? (
                 <div className="py-16 flex flex-col items-center justify-center text-center animate-fadeIn">
                   <div className="w-16 h-16 rounded-full bg-accent-emerald/10 border border-accent-emerald/20 flex items-center justify-center text-accent-emerald mb-6">
-                    <CheckCircle2 className="w-8 h-8" />
+                    <BasilCheck className="w-8 h-8" />
                   </div>
                   <h3 className="text-xl md:text-2xl font-bold font-kanit uppercase tracking-wider text-white mb-2">
                     Message Dispatched
@@ -197,7 +197,7 @@ export const ContactSection: React.FC = () => {
                         ) : (
                           <>
                             Send Message
-                            <Send className="w-3.5 h-3.5" />
+                            <BasilSend className="w-3.5 h-3.5" />
                           </>
                         )}
                       </button>
@@ -226,9 +226,9 @@ export const ContactSection: React.FC = () => {
 
           <div className="flex items-center gap-3">
             {[
-              { icon: Github, href: 'https://github.com/deepak57s', label: 'GitHub' },
-              { icon: Linkedin, href: 'https://www.linkedin.com/in/srinivas-deepak-a87a532a6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', label: 'LinkedIn' },
-              { icon: Mail, href: 'mailto:deepakparker222@gmail.com', label: 'Email' },
+              { icon: BasilGithub, href: 'https://github.com/deepak57s', label: 'GitHub' },
+              { icon: BasilLinkedin, href: 'https://www.linkedin.com/in/srinivas-deepak-a87a532a6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', label: 'LinkedIn' },
+              { icon: BasilEnvelope, href: 'mailto:deepakparker222@gmail.com', label: 'Email' },
             ].map((social, idx) => (
               <a
                 key={idx}

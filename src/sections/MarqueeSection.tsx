@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Cpu, Layers, Zap, Star, Shield } from 'lucide-react';
+import { BasilProcessor, BasilStack, BasilLightning, BasilStar, BasilShield } from '../components/BasilIcons';
 import {
   PythonIcon,
   AndroidIcon,
@@ -153,21 +153,21 @@ export const MarqueeSection: React.FC = () => {
     { text: 'Android Developer', icon: AndroidIcon, color: 'text-[#3DDC84]' },
     { text: 'Jetpack Compose', icon: ComposeIcon, color: 'text-[#38BDF8]' },
     { text: 'Java Core & OOP', icon: JavaIcon, color: 'text-[#FB923C]' },
-    { text: 'Clean Architecture (MVVM/MVI)', icon: Shield, color: 'text-accent-blue' },
+    { text: 'Clean Architecture (MVVM/MVI)', icon: BasilShield, color: 'text-accent-blue' },
     { text: 'Firebase Cloud Platform', icon: FirebaseIcon, color: 'text-[#FFCA28]' },
     { text: 'Python & AI-ML', icon: PythonIcon, color: 'text-[#3776AB]' },
     { text: 'REST APIs & Postman', icon: PostmanIcon, color: 'text-[#FF6C37]' },
   ];
 
   const row2 = [
-    { text: 'Micro ATM Systems', icon: Zap, color: 'text-[#38BDF8]' },
-    { text: 'Fintech Banking UI', icon: Zap, color: 'text-[#34D399]' },
-    { text: 'Aadhaar Biometric Auth', icon: Shield, color: 'text-accent-purple' },
+    { text: 'Micro ATM Systems', icon: BasilLightning, color: 'text-[#38BDF8]' },
+    { text: 'Fintech Banking UI', icon: BasilLightning, color: 'text-[#34D399]' },
+    { text: 'Aadhaar Biometric Auth', icon: BasilShield, color: 'text-accent-purple' },
     { text: 'Git & Version Control', icon: GitIcon, color: 'text-[#F05032]' },
     { text: 'React & Modern Frontend', icon: ReactIcon, color: 'text-[#61DAFB]' },
-    { text: 'NLP & Sentence-BERT', icon: Cpu, color: 'text-[#C084FC]' },
-    { text: 'Responsive Interfaces', icon: Layers, color: 'text-[#38BDF8]' },
-    { text: 'UI/UX Design Systems', icon: Star, color: 'text-[#FBBF24]' },
+    { text: 'NLP & Sentence-BERT', icon: BasilProcessor, color: 'text-[#C084FC]' },
+    { text: 'Responsive Interfaces', icon: BasilStack, color: 'text-[#38BDF8]' },
+    { text: 'UI/UX Design Systems', icon: BasilStar, color: 'text-[#FBBF24]' },
   ];
 
   const renderRowItems = (items: typeof row1) => {

@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Compass, GraduationCap, Briefcase, MessageSquare, FileText } from 'lucide-react';
+import {
+  BasilMenu,
+  BasilCross,
+  BasilExplore,
+  BasilUniversity,
+  BasilBag,
+  BasilChat,
+  BasilDocument
+} from './BasilIcons';
 import { Magnet } from './Magnet';
 
 export const Navbar: React.FC = () => {
@@ -27,10 +35,10 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navItems = [
-    { id: 'home', label: 'Home', href: '#home', icon: Compass },
-    { id: 'background', label: 'Background', href: '#background', icon: GraduationCap },
-    { id: 'work', label: 'Work & Projects', href: '#work', icon: Briefcase },
-    { id: 'contact', label: 'Contact', href: '#contact', icon: MessageSquare },
+    { id: 'home', label: 'Home', href: '#home', icon: BasilExplore },
+    { id: 'background', label: 'Background', href: '#background', icon: BasilUniversity },
+    { id: 'work', label: 'Work & Projects', href: '#work', icon: BasilBag },
+    { id: 'contact', label: 'Contact', href: '#contact', icon: BasilChat },
   ];
 
   return (
@@ -91,10 +99,12 @@ export const Navbar: React.FC = () => {
           </Magnet>
           <Magnet range={35} strength={0.25}>
             <a
-              href="mailto:deepakparker222@gmail.com?subject=Resume%20Inquiry%20-%20Deepak%20Srinivas"
+              href="https://drive.google.com/file/d/1XigmbT4V39QKrI20WjEQQrKMdXtigNjY/view?usp=sharing"
+              target="_blank"
+              rel="noreferrer"
               className="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold tracking-wider bg-gradient-to-r from-accent-blue to-accent-purple text-black hover:shadow-[0_0_20px_rgba(56,189,248,0.4)] transition-all duration-300"
             >
-              <FileText className="w-3.5 h-3.5" />
+              <BasilDocument className="w-3.5 h-3.5" />
               Resume CV
             </a>
           </Magnet>
@@ -107,7 +117,7 @@ export const Navbar: React.FC = () => {
             aria-label="Toggle navigation menu"
             className="p-2 rounded-xl text-primary-light hover:text-white hover:bg-white/[0.06] transition-colors"
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <BasilCross className="w-6 h-6" /> : <BasilMenu className="w-6 h-6" />}
           </button>
         </div>
       </div>
@@ -135,7 +145,9 @@ export const Navbar: React.FC = () => {
               Let's Talk
             </a>
             <a
-              href="mailto:deepakparker222@gmail.com?subject=Resume%20Inquiry%20-%20Deepak%20Srinivas"
+              href="https://drive.google.com/file/d/1XigmbT4V39QKrI20WjEQQrKMdXtigNjY/view?usp=sharing"
+              target="_blank"
+              rel="noreferrer"
               onClick={() => setIsOpen(false)}
               className="w-full text-center py-3 rounded-xl text-xs font-semibold uppercase tracking-wider bg-gradient-to-r from-accent-blue to-accent-purple text-black transition-all"
             >
@@ -149,3 +161,4 @@ export const Navbar: React.FC = () => {
 };
 
 export default Navbar;
+

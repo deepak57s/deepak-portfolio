@@ -1,10 +1,10 @@
 import React from 'react';
-import { ArrowUpRight, Mail } from 'lucide-react';
-import { Github, Linkedin } from '../components/Icons';
+import { BasilArrowUpRight, BasilGmail, BasilGithub, BasilLinkedin } from '../components/BasilIcons';
+
 import ThreePlayground from '../components/ThreePlayground';
 import Magnet from '../components/Magnet';
 import TiltCard from '../components/TiltCard';
-import portraitImg from '../assets/portrait.png';
+import portraitImg from '../assets/hero_profile.png';
 
 export const HeroSection: React.FC = () => {
   return (
@@ -52,7 +52,7 @@ export const HeroSection: React.FC = () => {
                 className="group flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold tracking-wider bg-white text-black hover:bg-[#eaeaea] transition-all duration-300 shadow-[0_4px_30px_rgba(255,255,255,0.1)]"
               >
                 Explore Work
-                <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <BasilArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
             </Magnet>
 
@@ -74,9 +74,9 @@ export const HeroSection: React.FC = () => {
             <div className="h-[1px] flex-1 bg-white/[0.06]" />
             <div className="flex items-center gap-3">
               {[
-                { icon: Github, href: 'https://github.com/deepak57s', label: 'GitHub Profile' },
-                { icon: Linkedin, href: 'https://www.linkedin.com/in/srinivas-deepak-a87a532a6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', label: 'LinkedIn Profile' },
-                { icon: Mail, href: 'mailto:deepakparker222@gmail.com', label: 'Email Deepak' },
+                { icon: BasilGithub, href: 'https://github.com/deepak57s', label: 'GitHub Profile' },
+                { icon: BasilLinkedin, href: 'https://www.linkedin.com/in/srinivas-deepak-a87a532a6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', label: 'LinkedIn Profile' },
+                { icon: BasilGmail, href: 'mailto:deepakparker222@gmail.com', label: 'Email Deepak' },
               ].map((social, idx) => (
                 <Magnet key={idx} range={30} strength={0.4}>
                   <a
